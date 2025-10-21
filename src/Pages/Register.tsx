@@ -4,25 +4,29 @@ import RegisterImage from "../assets/RegisterImage.jpg";
 import Logo from "@/assets/icons/Logo";
 export default function Register() {
   return (
-    <div>
-      <div className="grid min-h-svh lg:grid-cols-2">
-        <div className="relative hidden bg-muted lg:block">
-          <img
-            src={RegisterImage}
-            alt="Image"
-            className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.8]"
-          />
-        </div>
-        <div className="flex flex-col gap-4 p-6 md:p-10">
-          <div className="flex justify-center gap-2 md:justify-start">
-            <Link to="/" className="flex items-center gap-2 font-medium">
+    <div className="w-full">
+      <div className="relative min-h-screen w-full bg-gray-100 rounded-xl">
+        <div
+          className="absolute inset-0 bg-cover bg-center brightness-90 dark:brightness-75 "
+          style={{ backgroundImage: `url(${RegisterImage})` }}
+        ></div>
+
+        <div className="absolute inset-0 bg-black/30 "></div>
+
+        <div className="relative z-10 flex flex-col min-h-screen items-center justify-center px-4 sm:px-6 lg:px-8">
+          <Link
+            to="/"
+            className="flex items-center gap-2 mb-8"
+            style={{ minWidth: "80px", minHeight: "40px" }}
+          >
+            <div className="w-[40%] mx-auto mt-12">
+              {" "}
               <Logo />
-            </Link>
-          </div>
-          <div className="flex flex-1 items-center justify-center">
-            <div className="w-full max-w-xs">
-              <RegistrationForm />
             </div>
+          </Link>
+
+          <div className="w-full max-w-xl p-6 sm:p-10 bg-white/0 rounded-lg shadow-md backdrop-blur-sm">
+            <RegistrationForm />
           </div>
         </div>
       </div>

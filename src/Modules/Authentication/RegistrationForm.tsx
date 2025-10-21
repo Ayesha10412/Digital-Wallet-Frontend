@@ -89,9 +89,15 @@ export default function RegistrationForm({
     }
   };
   return (
-    <div className={cn("flex flex-col gap-6", className)} {...props}>
+    <div
+      className={cn("flex flex-col gap-6 text-white text-xl", className)}
+      {...props}
+    >
+      <h1 className="text-3xl text-white font-bold text-center">
+        Register Your Account
+      </h1>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5 ">
           <FormField
             control={form.control}
             name="name"
@@ -101,7 +107,7 @@ export default function RegistrationForm({
                 <FormControl>
                   <Input placeholder="Username" {...field} />
                 </FormControl>
-                <FormDescription>
+                <FormDescription className="text-gray-400">
                   This is your public display name.
                 </FormDescription>
               </FormItem>
@@ -117,7 +123,9 @@ export default function RegistrationForm({
                 <FormControl>
                   <Input placeholder="Email" {...field} />
                 </FormControl>
-                <FormDescription>Your email</FormDescription>
+                <FormDescription className="text-gray-400">
+                  Enter Your email
+                </FormDescription>
               </FormItem>
             )}
           />
@@ -131,7 +139,9 @@ export default function RegistrationForm({
                 <FormControl>
                   <Input placeholder="Password" {...field} />
                 </FormControl>
-                <FormDescription>Type your password here!</FormDescription>
+                <FormDescription className="text-gray-400">
+                  Type your password here!
+                </FormDescription>
               </FormItem>
             )}
           />
@@ -145,7 +155,9 @@ export default function RegistrationForm({
                 <FormControl>
                   <Input placeholder="Confirm Password" {...field} />
                 </FormControl>
-                <FormDescription>Match your password!</FormDescription>
+                <FormDescription className="text-gray-400">
+                  Match your password!
+                </FormDescription>
               </FormItem>
             )}
           />
@@ -159,7 +171,9 @@ export default function RegistrationForm({
                 <FormControl>
                   <Input placeholder="Phone" {...field} />
                 </FormControl>
-                <FormDescription>Give your phone number.</FormDescription>
+                <FormDescription className="text-gray-300">
+                  Give your phone number.
+                </FormDescription>
               </FormItem>
             )}
           />
@@ -173,21 +187,30 @@ export default function RegistrationForm({
                 <FormControl>
                   <Input placeholder="Address" {...field} />
                 </FormControl>
-                <FormDescription>Give your address.</FormDescription>
+                <FormDescription className="text-gray-400">
+                  Give your address.
+                </FormDescription>
               </FormItem>
             )}
           />
-          <Button type="submit">Submit</Button>
+          <Button type="submit" className="bg-white text-black ">
+            Submit
+          </Button>
         </form>
       </Form>
       <div className="relative text-center text-sm after:absolute after4:insert-0 after:top-1/2 after:z-0 after:flex after:items-center">
-        <span className="relative z-10 bg-background px-2 text-muted-foreground">
+        <span className="relative z-10 bg-background rounded-lg px-2 text-muted-foreground">
           Or continue with
         </span>
       </div>
-      <button type="button" className="full ">
-        Login with Google
-      </button>
+      <div>
+        <button
+          type="button"
+          className="max-w-lg px-4 text-sm py-1.5 font-bold items-center rounded-xl bg-white text-black"
+        >
+          Login with Google
+        </button>
+      </div>
       <div className="text-center text-sm">
         Already have an account?{" "}
         <Link to="/login" className="underline underline-offset-4">
