@@ -9,6 +9,7 @@ import {
   FormLabel,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import config from "@/Config";
 import { cn } from "@/lib/utils";
 import { useLoginMutation } from "@/Redux/Features/auth/auth.api";
 import type React from "react";
@@ -97,6 +98,7 @@ export default function LoginForm({
       </div>
       <div>
         <button
+          onClick={() => window.open(`${config.baseUrl}/auth/google`)}
           type="button"
           className="max-w-lg px-4 text-sm py-1.5 font-bold items-center rounded-xl bg-white text-black"
         >
@@ -104,8 +106,8 @@ export default function LoginForm({
         </button>
       </div>
       <div className="text-center text-sm">
-        Already have an account?{" "}
-        <Link to="/login" className="underline underline-offset-4">
+        Already have an account?
+        <Link to="/register" className="underline underline-offset-4">
           Register
         </Link>
       </div>
