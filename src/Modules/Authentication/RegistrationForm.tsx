@@ -194,7 +194,7 @@ export default function RegistrationForm({
             )}
           />
           <Button type="submit" className="bg-white text-black ">
-            Submit
+            Register
           </Button>
         </form>
       </Form>
