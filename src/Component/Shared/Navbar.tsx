@@ -11,6 +11,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { Role } from "@/Constant/Role";
 import { ModeToggle } from "@/Layout/ModeToggle";
 import {
   authApi,
@@ -20,7 +21,13 @@ import {
 import { useAppDispatch } from "@/Redux/hook";
 import React from "react";
 import { Link } from "react-router";
-const navigationLinks = [{ href: "/", label: "Home", role: "PUBLIC" }];
+const navigationLinks = [
+  { href: "/", label: "Home", role: "PUBLIC" },
+  { href: "/admin", label: "Dashboard", role: Role.admin },
+  { href: "/agent", label: "Dashboard", role: Role.agent },
+  { href: "/user", label: "Dashboard", role: Role.user },
+];
+
 export default function Navbar() {
   const { data } = useUserInfoQuery(undefined);
   const [logout] = useLogoutMutation();
