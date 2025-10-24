@@ -1,5 +1,5 @@
-import CashInForm from "@/Pages/Agent/CashInForm";
 import CashOutForm from "@/Pages/Agent/CashOutForm";
+import CashInForm from "@/Pages/User/CashInForm";
 import createWallet from "@/Pages/User/createWallet";
 import UserProfile from "@/Pages/User/UserProfile";
 import type { ISidebarItem } from "@/Types";
