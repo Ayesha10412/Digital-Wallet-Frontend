@@ -1,4 +1,5 @@
 import AgentProfile from "@/Pages/Agent/AgentProfile";
+import CashInForm from "@/Pages/Agent/CashInForm";
 import type { ISidebarItem } from "@/Types";
 
 export const agentSidebarItems: ISidebarItem[] = [
@@ -9,6 +10,11 @@ export const agentSidebarItems: ISidebarItem[] = [
         title: "Profile",
         url: "/agent/profile",
         component: AgentProfile,
+      },
+      {
+        title: "Cash-In",
+        url: "/agent/cash-in",
+        component: CashInForm,
       },
     ],
   },

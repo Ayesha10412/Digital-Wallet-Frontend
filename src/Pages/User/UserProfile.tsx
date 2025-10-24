@@ -11,7 +11,7 @@ import {
 import { useUserInfoQuery } from "@/Redux/Features/auth/auth.api";
 import { Mail, MapPin, Phone, ShieldCheck, User } from "lucide-react";
 
-export default function AgentProfile() {
+export default function UserProfile() {
   const { data } = useUserInfoQuery(undefined);
   const user = data?.data;
   return (
@@ -24,7 +24,7 @@ export default function AgentProfile() {
           <CardHeader className="flex flex-col items-center gap-3">
             {/*  User Image / Placeholder */}
             <Avatar className="w-28 h-28 border-4 border-purple-300 shadow-md">
-              <AvatarImage src={user?.image || ""} alt={user?.name} />
+              <AvatarImage src={user?.picture || ""} alt={user?.name} />
               <AvatarFallback className="bg-purple-200 text-purple-700 text-xl">
                 {user?.name ? user.name.charAt(0) : "?"}
               </AvatarFallback>

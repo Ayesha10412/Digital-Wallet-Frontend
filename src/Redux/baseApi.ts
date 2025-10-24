@@ -6,6 +6,6 @@ import { axiosBaseQuery } from "./axiosbaseQuery";
 export const baseApi = createApi({
   reducerPath: "pokemonApi",
   baseQuery: axiosBaseQuery(),
-  tagTypes: ["USER"],
+  tagTypes: ["USER","WALLET"],
   endpoints: () => ({}),
 });
