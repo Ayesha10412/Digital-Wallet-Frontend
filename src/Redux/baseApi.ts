@@ -4,8 +4,8 @@ import { axiosBaseQuery } from "./axiosbaseQuery";
 
 // Define a service using a base URL and expected endpoints
 export const baseApi = createApi({
-  reducerPath: "pokemonApi",
+  reducerPath: "baseApi",
   baseQuery: axiosBaseQuery(),
-  tagTypes: ["USER","WALLET"],
+  tagTypes: ["USER", "WALLET"],
   endpoints: () => ({}),
 });
