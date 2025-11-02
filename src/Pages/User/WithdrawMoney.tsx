@@ -4,37 +4,37 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useUserInfoQuery } from "@/Redux/Features/auth/auth.api";
-import { useAddMoneyMutation } from "@/Redux/Features/Wallet/wallet.api";
-
+import { useWithdrawMoneyMutation } from "@/Redux/Features/Wallet/wallet.api";
 import React, { useState } from "react";
 import { toast } from "sonner";
 
-export default function AddMoney() {
+export default function WithdrawMoney() {
   const [amount, setAmount] = useState("");
-  const [addMoney, { isLoading }] = useAddMoneyMutation();
+  const [withdrawMoney, { isLoading }] = useWithdrawMoneyMutation();
   const { data: userInfo, isLoading: userLoading } =
     useUserInfoQuery(undefined);
   const user = userInfo?.data;
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!user?._id) {
-      return toast.error("User info not found!");
+      return toast.error("User is not found!");
     }
     if (!amount) {
-      return toast.error("Please enter your amount!");
+      return toast.error("Please provide amount you want to withdrawn!");
     }
     try {
-      const data = {
+      const withdrawnData = {
         amount: Number(amount),
       };
-      console.log(data);
-      await addMoney(data).unwrap();
-      toast.success("Money added successfully");
+      console.log(withdrawnData);
+      await withdrawMoney(withdrawnData).unwrap();
+      toast.success("Money Withdrawn Successfully!");
       setAmount("");
-    } catch (err: any) {
-      toast.error(err.data?.message || "Cash in failed!");
+    } catch (error: any) {
+      toast.error(error.message);
     }
   };
+
   if (userLoading) {
     return <p className="text-center mt-4">Loading user info...</p>;
   }
@@ -42,7 +42,7 @@ export default function AddMoney() {
     <Card className="w-full max-w-sm mx-auto">
       <CardHeader>
         <CardTitle className="text-2xl text-center text-shadow-pink-700 font-bold">
-          Add Money To Your Wallet
+          Withdraw Money From Your Wallet
         </CardTitle>
       </CardHeader>
       <CardContent>
@@ -75,7 +75,7 @@ export default function AddMoney() {
               type="submit"
               disabled={isLoading || userLoading}
             >
-              {isLoading ? "Processing..." : "Add Money"}
+              {isLoading ? "Processing..." : "Withdrawn Money"}
             </Button>
           </div>
         </form>
