@@ -1,4 +1,3 @@
-import { useUserInfoQuery } from "@/Redux/Features/auth/auth.api";
 import {
   Sidebar,
   SidebarContent,
@@ -15,6 +14,7 @@ import type React from "react";
 import { getSidebarItems } from "@/Utils/getSidebarItems";
 import { Link } from "react-router";
 import Logo from "@/assets/icons/Logo";
+import { useUserInfoQuery } from "@/Redux/Features/User/user.api";
 
 export default function AppSidebar({
   ...props

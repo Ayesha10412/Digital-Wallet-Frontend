@@ -8,7 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { useAllUsersQuery } from "@/Redux/Features/auth/auth.api";
+import { useAllUsersQuery } from "@/Redux/Features/User/user.api";
 
 export default function AllUsers() {
   const { data } = useAllUsersQuery(undefined);

@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { useUserInfoQuery } from "@/Redux/Features/auth/auth.api";
+import { useUserInfoQuery } from "@/Redux/Features/User/user.api";
 import { Mail, MapPin, Phone, ShieldCheck, User } from "lucide-react";
 
 export default function AgentProfile() {

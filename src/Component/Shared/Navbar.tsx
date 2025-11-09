@@ -13,11 +13,8 @@ import {
 } from "@/components/ui/popover";
 import { Role } from "@/Constant/Role";
 import { ModeToggle } from "@/Layout/ModeToggle";
-import {
-  authApi,
-  useLogoutMutation,
-  useUserInfoQuery,
-} from "@/Redux/Features/auth/auth.api";
+import { authApi, useLogoutMutation } from "@/Redux/Features/auth/auth.api";
+import { useUserInfoQuery } from "@/Redux/Features/User/user.api";
 import { useAppDispatch } from "@/Redux/hook";
 import React from "react";
 import { Link } from "react-router";

@@ -12,6 +12,7 @@ import { adminSidebarItems } from "./adminSidebarItems";
 import { userSidebarItems } from "./userSidebarItems";
 import { generateRoute } from "@/Utils/generateRoute";
 import { agentSidebarItems } from "./agentSidebarItems";
+import UpdateProfile from "@/Pages/User/UpdateProfile";
 export const router = createBrowserRouter([
   {
     Component: App,
@@ -33,7 +34,10 @@ export const router = createBrowserRouter([
         Component: Unauthorized,
         path: "/unauthorized",
       },
-
+      {
+        Component: UpdateProfile,
+        path: "/profile/edit",
+      },
       {
         Component: withAuth(DashboardLayout, Role.admin as TRole),
         path: "/admin",

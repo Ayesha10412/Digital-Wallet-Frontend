@@ -1,4 +1,4 @@
-import { useUserInfoQuery } from "@/Redux/Features/auth/auth.api";
+import { useUserInfoQuery } from "@/Redux/Features/User/user.api";
 import type { TRole } from "@/Types";
 import type { ComponentType } from "react";
 import { Navigate } from "react-router";

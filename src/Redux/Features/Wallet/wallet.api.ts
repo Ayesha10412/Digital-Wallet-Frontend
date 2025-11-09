@@ -49,6 +49,13 @@ const walletApi = baseApi.injectEndpoints({
       }),
       providesTags: ["WALLET"],
     }),
+    getWallet: builder.query({
+      query: () => ({
+        url: "/wallet/",
+        method: "GET",
+      }),
+      providesTags: ["WALLET"],
+    }),
   }),
 });
 export const {

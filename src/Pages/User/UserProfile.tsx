@@ -8,11 +8,13 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { useUserInfoQuery } from "@/Redux/Features/auth/auth.api";
+import { useUserInfoQuery } from "@/Redux/Features/User/user.api";
 import { Mail, MapPin, Phone, ShieldCheck, User } from "lucide-react";
+import { useNavigate } from "react-router";
 
 export default function UserProfile() {
   const { data } = useUserInfoQuery(undefined);
+  const navigate = useNavigate();
   const user = data?.data;
   return (
     <div>
@@ -79,7 +81,10 @@ export default function UserProfile() {
           </CardContent>
 
           <CardFooter className="flex justify-center py-4 border-t border-purple-100">
-            <button className="px-6 py-2 rounded-full text-white bg-purple-600 hover:bg-purple-700 transition font-medium shadow-md">
+            <button
+              onClick={() => navigate("/profile/edit")}
+              className="px-6 py-2 rounded-full text-white bg-purple-600 hover:bg-purple-700 transition font-medium shadow-md"
+            >
               Edit Profile
             </button>
           </CardFooter>
