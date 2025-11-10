@@ -49,9 +49,16 @@ const walletApi = baseApi.injectEndpoints({
       }),
       providesTags: ["WALLET"],
     }),
-    getWallet: builder.query({
-      query: () => ({
-        url: "/wallet/",
+    getWalletBalance: builder.query({
+      query: (id) => ({
+        url: `/wallet/${id}`,
+        method: "GET",
+      }),
+      providesTags: ["WALLET"],
+    }),
+    getWalletHistory: builder.query({
+      query: (id) => ({
+        url: `/wallet/history/${id}`,
         method: "GET",
       }),
       providesTags: ["WALLET"],
@@ -65,4 +72,6 @@ export const {
   useWithdrawMoneyMutation,
   useSendMoneyMutation,
   useRecipientsQuery,
+  useGetWalletBalanceQuery,
+  useGetWalletHistoryQuery,
 } = walletApi;
