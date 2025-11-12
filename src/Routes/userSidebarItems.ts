@@ -1,7 +1,7 @@
 import CashOutForm from "@/Pages/Agent/CashOutForm";
 import AddMoney from "@/Pages/User/AddMoney";
 import CashInForm from "@/Pages/User/CashInForm";
-import createWallet from "@/Pages/User/createWallet";
+import Wallet from "@/Pages/User/Wallet";
 import SendMoney from "@/Pages/User/SendMoney";
 import UserProfile from "@/Pages/User/UserProfile";
 import WithdrawMoney from "@/Pages/User/WithdrawMoney";
@@ -14,7 +14,7 @@ export const userSidebarItems: ISidebarItem[] = [
       {
         title: "Wallet",
         url: "/user/wallet",
-        component: createWallet,
+        component: Wallet,
       },
       {
         title: "Profile",

@@ -57,8 +57,8 @@ const walletApi = baseApi.injectEndpoints({
       providesTags: ["WALLET"],
     }),
     getWalletHistory: builder.query({
-      query: (id) => ({
-        url: `/wallet/history/${id}`,
+      query: (userId) => ({
+        url: `/wallet/history/${userId}`,
         method: "GET",
       }),
       providesTags: ["WALLET"],
