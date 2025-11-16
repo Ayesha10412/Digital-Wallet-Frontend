@@ -16,12 +16,13 @@ import {
   useSendMoneyMutation,
 } from "@/Redux/Features/Wallet/wallet.api";
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 import { toast } from "sonner";
 
 export default function SendMoney() {
   const [amount, setAmount] = useState("");
   const [selectedUserId, setSelectedUserId] = useState("");
-
+  const navigate = useNavigate();
   const [sendMoney, { isLoading }] = useSendMoneyMutation();
   const { data: userInfo, isLoading: userLoading } =
     useUserInfoQuery(undefined);
@@ -49,6 +50,7 @@ export default function SendMoney() {
       console.log(sendData);
       await sendMoney(sendData).unwrap();
       toast.success("Send Money Successfully!");
+      navigate("/user/wallet");
       setAmount("");
     } catch (error: any) {
       toast.error(error.message);

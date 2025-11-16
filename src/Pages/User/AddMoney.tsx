@@ -7,10 +7,12 @@ import { useUserInfoQuery } from "@/Redux/Features/User/user.api";
 import { useAddMoneyMutation } from "@/Redux/Features/Wallet/wallet.api";
 
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 import { toast } from "sonner";
 
 export default function AddMoney() {
   const [amount, setAmount] = useState("");
+  const navigate = useNavigate();
   const [addMoney, { isLoading }] = useAddMoneyMutation();
   const { data: userInfo, isLoading: userLoading } =
     useUserInfoQuery(undefined);
@@ -30,6 +32,7 @@ export default function AddMoney() {
       console.log(data);
       await addMoney(data).unwrap();
       toast.success("Money added successfully");
+      navigate("/user/wallet");
       setAmount("");
     } catch (err: any) {
       toast.error(err.data?.message || "Cash in failed!");

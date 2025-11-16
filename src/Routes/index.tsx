@@ -13,6 +13,11 @@ import { userSidebarItems } from "./userSidebarItems";
 import { generateRoute } from "@/Utils/generateRoute";
 import { agentSidebarItems } from "./agentSidebarItems";
 import UpdateProfile from "@/Pages/User/UpdateProfile";
+import WithdrawMoney from "@/Pages/User/WithdrawMoney";
+import SendMoney from "@/Pages/User/SendMoney";
+import CashInForm from "@/Pages/User/CashInForm";
+import AddMoney from "@/Pages/User/AddMoney";
+//import CashOutForm from "@/Pages/User/CashOutForm";
 export const router = createBrowserRouter([
   {
     Component: App,
@@ -39,6 +44,26 @@ export const router = createBrowserRouter([
         path: "/profile/edit",
       },
       {
+        Component: WithdrawMoney,
+        path: "/user/withdrawMoney",
+      },
+      {
+        Component: SendMoney,
+        path: "/user/sendMoney",
+      },
+      {
+        Component: CashInForm,
+        path: "/user/cash-in",
+      },
+      // {
+      //   Component: CashOutForm,
+      //   path: "/user/cash-out",
+      // },
+      {
+        Component: AddMoney,
+        path: "/user/addMoney",
+      },
+      {
         Component: withAuth(DashboardLayout, Role.admin as TRole),
         path: "/admin",
         children: [
@@ -50,7 +75,7 @@ export const router = createBrowserRouter([
         Component: withAuth(DashboardLayout, Role.agent as TRole),
         path: "/agent",
         children: [
-          { index: true, element: <Navigate to="/agent/profile" /> },
+          { index: true, element: <Navigate to="/agent/home" /> },
           ...generateRoute(agentSidebarItems),
         ],
       },

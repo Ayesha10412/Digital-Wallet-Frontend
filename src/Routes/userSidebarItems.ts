@@ -1,10 +1,5 @@
-import CashOutForm from "@/Pages/Agent/CashOutForm";
-import AddMoney from "@/Pages/User/AddMoney";
-import CashInForm from "@/Pages/User/CashInForm";
 import Wallet from "@/Pages/User/Wallet";
-import SendMoney from "@/Pages/User/SendMoney";
 import UserProfile from "@/Pages/User/UserProfile";
-import WithdrawMoney from "@/Pages/User/WithdrawMoney";
 import type { ISidebarItem } from "@/Types";
 
 export const userSidebarItems: ISidebarItem[] = [
@@ -20,31 +15,6 @@ export const userSidebarItems: ISidebarItem[] = [
         title: "Profile",
         url: "/user/profile",
         component: UserProfile,
-      },
-      {
-        title: "Add Money",
-        url: "/user/addMoney",
-        component: AddMoney,
-      },
-      {
-        title: "Withdraw Money",
-        url: "/user/withdrawMoney",
-        component: WithdrawMoney,
-      },
-      {
-        title: "Send Money",
-        url: "/user/sendMoney",
-        component: SendMoney,
-      },
-      {
-        title: "Cash In",
-        url: "/user/cash-in",
-        component: CashInForm,
-      },
-      {
-        title: "Cash Out",
-        url: "/user/cash-out",
-        component: CashOutForm,
       },
     ],
   },

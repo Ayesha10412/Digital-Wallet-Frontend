@@ -16,14 +16,17 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router";
 
-export default function WalletPage() {
+export default function Overview() {
   const { data: userData } = useUserInfoQuery(undefined);
   const user = userData?.data;
   const userId = user?._id;
 
+  const isAgent = user?.role === "AGENT";
+
   const { data: walletData } = useGetWalletBalanceQuery(userId, {
     skip: !userId,
   });
+
   const { data: walletHistory } = useGetWalletHistoryQuery(userId, {
     skip: !userId,
   });
@@ -44,13 +47,11 @@ export default function WalletPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <Card
-          className="bg-gradient-to-r from-purple-400 to-amber-400
-
- text-white rounded-3xl shadow-xl"
-        >
+        <Card className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-3xl shadow-xl">
           <CardContent className="p-8">
-            <p className="text-lg font-medium">Wallet Balance</p>
+            <p className="text-lg font-medium">
+              {isAgent ? "Agent Wallet Balance" : "Wallet Balance"}
+            </p>
             <h2 className="text-5xl font-bold mt-2">
               {wallet ? `${wallet.balance} ${wallet.currency}` : "Loading..."}
             </h2>
@@ -59,62 +60,92 @@ export default function WalletPage() {
         </Card>
       </motion.div>
 
-      {/* Action Buttons */}
+      {/* Actions */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
         className="grid grid-cols-2 md:grid-cols-4 gap-4"
       >
-        <Link
-          to="/user/sendMoney"
-          className="bg-green-500 hover:bg-green-600 text-white py-1 text-sm font-bold rounded-xl shadow-md transition transform hover:scale-105"
-        >
-          Send Money
-        </Link>
-        <Link
-          to="/user/withdrawMoney"
-          className="bg-red-500 hover:bg-red-600 text-white text-sm py-1 font-bold rounded-xl shadow-md transition transform hover:scale-105"
-        >
-          Withdraw
-        </Link>
-        <Link
-          to="/user/cash-in"
-          className="bg-blue-500 hover:bg-blue-600 text-white text-sm py-1 font-bold rounded-xl shadow-md transition transform hover:scale-105"
-        >
-          Cash In
-        </Link>
-        <Link
-          to="/user/cash-out"
-          className="bg-yellow-500 hover:bg-yellow-600 text-white text-sm font-bold py-1 rounded-xl shadow-md transition transform hover:scale-105"
-        >
-          Cash Out
-        </Link>
-        <Link
-          to="/user/addMoney"
-          className="bg-emerald-500 hover:bg-emerald-600 text-white text-sm font-bold py-1 rounded-xl shadow-md transition transform hover:scale-105"
-        >
-          Add Money
-        </Link>
+        {/* AGENT ACTIONS */}
+        {isAgent && (
+          <>
+            <Link
+              to="/agent/cash-in"
+              className="bg-green-600 hover:bg-green-700 text-white py-2 text-sm font-bold rounded-xl shadow-md transition transform hover:scale-105"
+            >
+              Cash In for User
+            </Link>
+
+            <Link
+              to="/agent/cash-out"
+              className="bg-yellow-500 hover:bg-yellow-600 text-white py-2 text-sm font-bold rounded-xl shadow-md transition transform hover:scale-105"
+            >
+              Cash Out for User
+            </Link>
+
+            <Link
+              to="/agent/transactions"
+              className="bg-indigo-500 hover:bg-indigo-600 text-white py-2 text-sm font-bold rounded-xl shadow-md transition transform hover:scale-105"
+            >
+              All Transactions
+            </Link>
+          </>
+        )}
+
+        {/* USER ACTIONS */}
+        {!isAgent && (
+          <>
+            <Link
+              to="/user/sendMoney"
+              className="bg-green-500 hover:bg-green-600 text-white py-2 font-bold text-sm rounded-xl shadow-md transition transform hover:scale-105"
+            >
+              Send Money
+            </Link>
+
+            <Link
+              to="/user/withdrawMoney"
+              className="bg-red-500 hover:bg-red-600 text-white py-2 font-bold text-sm rounded-xl shadow-md transition transform hover:scale-105"
+            >
+              Withdraw
+            </Link>
+
+            <Link
+              to="/user/cash-in"
+              className="bg-blue-500 hover:bg-blue-600 text-white py-2 font-bold text-sm rounded-xl shadow-md transition transform hover:scale-105"
+            >
+              Cash In
+            </Link>
+
+            <Link
+              to="/user/cash-out"
+              className="bg-yellow-500 hover:bg-yellow-600 text-white py-2 font-bold text-sm rounded-xl shadow-md transition transform hover:scale-105"
+            >
+              Cash Out
+            </Link>
+          </>
+        )}
       </motion.div>
 
-      {/* Transaction Graph */}
+      {/* Transaction Chart */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.4 }}
       >
         <Card className="rounded-3xl shadow-lg p-6 bg-white">
-          <h3 className="text-lg font-semibold mb-4">Recent Transactions</h3>
+          <h3 className="text-lg font-semibold mb-4">
+            Recent Transactions ({isAgent ? "Agent" : "User"})
+          </h3>
           <ResponsiveContainer width="100%" height={250}>
             <LineChart data={chartData}>
-              <XAxis dataKey="name" stroke="#8884d8" />
-              <YAxis stroke="#8884d8" />
+              <XAxis dataKey="name" stroke="#555" />
+              <YAxis stroke="#555" />
               <Tooltip />
               <Line
                 type="monotone"
                 dataKey="amount"
-                stroke="#6366F1"
+                stroke="#2563EB"
                 strokeWidth={3}
                 activeDot={{ r: 6 }}
               />
@@ -123,7 +154,7 @@ export default function WalletPage() {
         </Card>
       </motion.div>
 
-      {/* Transaction History */}
+      {/* Transaction Cards */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -150,6 +181,7 @@ export default function WalletPage() {
                 {tx.amount} {wallet?.currency}
               </p>
             </div>
+
             <p className="text-sm text-gray-400">Status: {tx.status}</p>
             <p className="text-sm text-gray-400 mt-1">
               Transaction ID: {tx._id}

@@ -6,10 +6,12 @@ import { Label } from "@/components/ui/label";
 import { useUserInfoQuery } from "@/Redux/Features/User/user.api";
 import { useWithdrawMoneyMutation } from "@/Redux/Features/Wallet/wallet.api";
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 import { toast } from "sonner";
 
 export default function WithdrawMoney() {
   const [amount, setAmount] = useState("");
+  const navigate = useNavigate();
   const [withdrawMoney, { isLoading }] = useWithdrawMoneyMutation();
   const { data: userInfo, isLoading: userLoading } =
     useUserInfoQuery(undefined);
@@ -29,6 +31,7 @@ export default function WithdrawMoney() {
       console.log(withdrawnData);
       await withdrawMoney(withdrawnData).unwrap();
       toast.success("Money Withdrawn Successfully!");
+      navigate("/user/wallet");
       setAmount("");
     } catch (error: any) {
       toast.error(error.message);

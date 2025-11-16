@@ -38,7 +38,7 @@ const walletApi = baseApi.injectEndpoints({
       query: (data) => ({
         url: "/wallet/cash-out",
         method: "POST",
-        body: data,
+        data,
       }),
       invalidatesTags: ["WALLET"],
     }),
