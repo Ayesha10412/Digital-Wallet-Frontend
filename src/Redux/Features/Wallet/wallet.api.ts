@@ -6,7 +6,7 @@ const walletApi = baseApi.injectEndpoints({
       query: (data) => ({
         url: "/wallet/cash-in",
         method: "POST",
-        body: data,
+        data,
       }),
       invalidatesTags: ["WALLET"],
     }),

@@ -111,14 +111,14 @@ export default function Overview() {
             </Link>
 
             <Link
-              to="/user/cash-in"
+              to="/agent/cash-in"
               className="bg-blue-500 hover:bg-blue-600 text-white py-2 font-bold text-sm rounded-xl shadow-md transition transform hover:scale-105"
             >
               Cash In
             </Link>
 
             <Link
-              to="/user/cash-out"
+              to="/agent/cash-out"
               className="bg-yellow-500 hover:bg-yellow-600 text-white py-2 font-bold text-sm rounded-xl shadow-md transition transform hover:scale-105"
             >
               Cash Out

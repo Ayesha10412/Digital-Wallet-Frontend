@@ -15,9 +15,9 @@ import { agentSidebarItems } from "./agentSidebarItems";
 import UpdateProfile from "@/Pages/User/UpdateProfile";
 import WithdrawMoney from "@/Pages/User/WithdrawMoney";
 import SendMoney from "@/Pages/User/SendMoney";
-import CashInForm from "@/Pages/User/CashInForm";
+import CashInForm from "@/Pages/Agent/CashInForm";
 import AddMoney from "@/Pages/User/AddMoney";
-//import CashOutForm from "@/Pages/User/CashOutForm";
+import CashOutForm from "@/Pages/Agent/CashOutForm";
 export const router = createBrowserRouter([
   {
     Component: App,
@@ -53,15 +53,15 @@ export const router = createBrowserRouter([
       },
       {
         Component: CashInForm,
-        path: "/user/cash-in",
+        path: "/agent/cash-in",
       },
-      // {
-      //   Component: CashOutForm,
-      //   path: "/user/cash-out",
-      // },
+      {
+        Component: CashOutForm,
+        path: "/agent/cash-out",
+      },
       {
         Component: AddMoney,
-        path: "/user/addMoney",
+        path: "/agent/addMoney",
       },
       {
         Component: withAuth(DashboardLayout, Role.admin as TRole),

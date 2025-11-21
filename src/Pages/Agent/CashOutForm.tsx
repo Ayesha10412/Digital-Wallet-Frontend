@@ -34,7 +34,7 @@ type CashOutFormType = z.infer<typeof schema>;
 export default function CashOutForm() {
   const [cashOut, { isLoading }] = useCashOutMutation();
   const { data: recipientData } = useRecipientsQuery(undefined);
-  console.log(recipientData);
+  //console.log(recipientData);
   const navigate = useNavigate();
   const form = useForm<CashOutFormType>({
     resolver: zodResolver(schema),
@@ -69,20 +69,6 @@ export default function CashOutForm() {
             onSubmit={form.handleSubmit(onSubmit)}
             className="space-y-6 space-x-10 "
           >
-            {/* User ID */}
-            {/* <FormField
-              control={form.control}
-              name="userId"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>User ID</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Enter user ID" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            /> */}
             <FormField
               control={form.control}
               name="userId"

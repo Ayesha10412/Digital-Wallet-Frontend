@@ -78,18 +78,13 @@ export default function WalletPage() {
         >
           Withdraw
         </Link>
-        <Link
-          to="/user/cash-in"
-          className="bg-blue-500 hover:bg-blue-600 text-white text-sm py-1 font-bold rounded-xl shadow-md transition transform hover:scale-105"
-        >
-          Cash In
-        </Link>
-        <Link
-          to="/user/cash-out"
+
+        {/* <Link
+          to="/agent/cash-out"
           className="bg-yellow-500 hover:bg-yellow-600 text-white text-sm font-bold py-1 rounded-xl shadow-md transition transform hover:scale-105"
         >
           Cash Out
-        </Link>
+        </Link> */}
         <Link
           to="/user/addMoney"
           className="bg-emerald-500 hover:bg-emerald-600 text-white text-sm font-bold py-1 rounded-xl shadow-md transition transform hover:scale-105"
