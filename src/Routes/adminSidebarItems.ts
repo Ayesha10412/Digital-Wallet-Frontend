@@ -1,5 +1,5 @@
 import AdminProfile from "@/Pages/Admin/AdminProfile";
-import allTransaction from "@/Pages/Admin/allTransaction";
+import allTransaction from "@/Pages/Admin/AllTransaction";
 import AllUsers from "@/Pages/Admin/AllUsers";
 import Analytics from "@/Pages/Admin/Analytics";
 import type { ISidebarItem } from "@/Types";
