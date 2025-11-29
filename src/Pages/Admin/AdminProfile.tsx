@@ -9,7 +9,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { useUserInfoQuery } from "@/Redux/Features/User/user.api";
-import { Mail, MapPin, Phone, ShieldCheck, User } from "lucide-react";
+import { Mail, MapPin, Phone, User } from "lucide-react";
+import { Link } from "react-router";
 
 export default function AdminProfile() {
   const { data } = useUserInfoQuery(undefined);
@@ -72,16 +73,16 @@ export default function AdminProfile() {
               <span>Role: {user?.role || "Unknown"}</span>
             </div>
 
-            <div className="flex items-center gap-2">
+            {/* <div className="flex items-center gap-2">
               <ShieldCheck className="w-4 h-4 text-purple-500" />
               <span>Approved: {user?.isApproved ? "✅ Yes" : "❌ No"}</span>
-            </div>
+            </div> */}
           </CardContent>
 
           <CardFooter className="flex justify-center py-4 border-t border-purple-100">
-            <button className="px-6 py-2 rounded-full text-white bg-purple-600 hover:bg-purple-700 transition font-medium shadow-md">
+            <Link to="/profile/edit" className="px-6 py-2 rounded-full text-white bg-purple-600 hover:bg-purple-700 transition font-medium shadow-md">
               Edit Profile
-            </button>
+            </Link>
           </CardFooter>
         </Card>
       </div>

@@ -37,7 +37,7 @@ export default function AllUsers() {
   const [selectedUser, setSelectedUser] = useState<any>({});
   const [open, setOpen] = useState(false);
   const users = data?.data.filter((item: any) => item.role === "USER");
-  console.log(users);
+  //console.log(users);
   const handleOpenModal = (user: any) => {
     setSelectedUser(user);
     setFormData({

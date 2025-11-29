@@ -16,6 +16,7 @@ export default function UserProfile() {
   const { data } = useUserInfoQuery(undefined);
   const navigate = useNavigate();
   const user = data?.data;
+  
   return (
     <div>
       <h1 className="text-center text-green-500 font-bold text-3xl mb-8">

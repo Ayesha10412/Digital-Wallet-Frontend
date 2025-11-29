@@ -12,13 +12,14 @@ import { adminSidebarItems } from "./adminSidebarItems";
 import { userSidebarItems } from "./userSidebarItems";
 import { generateRoute } from "@/Utils/generateRoute";
 import { agentSidebarItems } from "./agentSidebarItems";
-import UpdateProfile from "@/Pages/User/UpdateProfile";
+//import UpdateProfile from "@/Pages/User/UpdateProfile";
 import WithdrawMoney from "@/Pages/User/WithdrawMoney";
 import SendMoney from "@/Pages/User/SendMoney";
 import CashInForm from "@/Pages/Agent/CashInForm";
 import AddMoney from "@/Pages/User/AddMoney";
 import CashOutForm from "@/Pages/Agent/CashOutForm";
 import ResetPassword from "@/Component/ResetPassword";
+import UpdateProfile from "@/Component/UpdateProfile";
 export const router = createBrowserRouter([
   {
     Component: App,

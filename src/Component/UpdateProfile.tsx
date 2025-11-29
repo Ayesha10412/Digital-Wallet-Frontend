@@ -14,11 +14,12 @@ import {
   useUpdateInfoMutation,
   useUserInfoQuery,
 } from "@/Redux/Features/User/user.api";
+import { navigateToProfile } from "@/Utils/navigateRoute";
 import { Loader2 } from "lucide-react";
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { toast } from "sonner";
-
+ 
 export default function UpdateProfile() {
   const [formData, setFormData] = useState({
     name: "",
@@ -28,7 +29,8 @@ export default function UpdateProfile() {
   });
   const navigate = useNavigate();
   const [updateInfo, { isLoading }] = useUpdateInfoMutation();
-  const { refetch } = useUserInfoQuery(undefined);
+  const { data: userData, refetch } = useUserInfoQuery(undefined);
+  const User = userData?.data?.role;
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -38,7 +40,7 @@ export default function UpdateProfile() {
       await updateInfo(formData).unwrap();
       toast.success("Profile Updated Successfully!!");
       await refetch();
-      setTimeout(() => navigate("/user/profile"), 2000);
+      navigateToProfile(navigate, User);
     } catch (error: any) {
       toast.error(error.message || "Something went wrong!");
     }
