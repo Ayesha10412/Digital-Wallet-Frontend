@@ -12,4 +12,5 @@ const transactionApi = baseApi.injectEndpoints({
     }),
   }),
 });
-export const { useGetAllTransactionQuery } = transactionApi;
+export const { useGetAllTransactionQuery } =
+  transactionApi;

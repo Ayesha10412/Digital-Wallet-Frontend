@@ -18,6 +18,7 @@ import SendMoney from "@/Pages/User/SendMoney";
 import CashInForm from "@/Pages/Agent/CashInForm";
 import AddMoney from "@/Pages/User/AddMoney";
 import CashOutForm from "@/Pages/Agent/CashOutForm";
+import ResetPassword from "@/Component/ResetPassword";
 export const router = createBrowserRouter([
   {
     Component: App,
@@ -62,6 +63,10 @@ export const router = createBrowserRouter([
       {
         Component: AddMoney,
         path: "/agent/addMoney",
+      },
+      {
+        Component: ResetPassword,
+        path: "/resetPassword",
       },
       {
         Component: withAuth(DashboardLayout, Role.admin as TRole),

@@ -3,13 +3,11 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import config from "@/Config";
 import { cn } from "@/lib/utils";
 import { useLoginMutation } from "@/Redux/Features/auth/auth.api";
 import type React from "react";
@@ -61,11 +59,8 @@ export default function LoginForm({
               <FormItem>
                 <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input placeholder="Email" {...field} />
+                  <Input placeholder="Enter Your Email" {...field} />
                 </FormControl>
-                <FormDescription className="text-gray-400">
-                  Enter Your email
-                </FormDescription>
               </FormItem>
             )}
           />
@@ -77,37 +72,40 @@ export default function LoginForm({
               <FormItem>
                 <FormLabel>Password</FormLabel>
                 <FormControl>
-                  <Input placeholder="Password" {...field} />
+                  <Input placeholder="Enter Your Password" {...field} />
                 </FormControl>
-                <FormDescription className="text-gray-400">
-                  Type your password here!
-                </FormDescription>
+                {/* FIXED LOGIN BUTTON */}
+                <Button type="submit" className="w-full">
+                  Login
+                </Button>{" "}
+                <Link
+                  to="/resetPassword"
+                  className="text-gray-300 text-xs text-right block"
+                >
+                  Forgot password?
+                </Link>
               </FormItem>
             )}
           />
 
-          <Button type="submit" className="bg-white text-black ">
-            Login
-          </Button>
+          <div className="flex items-center gap-3">
+            <div className="flex-1 border-t border-gray-600"></div>
+            <span className="text-xs text-gray-400">or</span>
+            <div className="flex-1 border-t border-gray-600"></div>
+          </div>
+
+          <button className="w-md mt-4 py-2 text-sm rounded-xl bg-background text-blue-600 font-bold">
+            Continue with Google
+          </button>
         </form>
       </Form>
-      <div className="relative text-center text-sm after:absolute after4:insert-0 after:top-1/2 after:z-0 after:flex after:items-center">
-        <span className="relative z-10 bg-background rounded-lg px-2 text-muted-foreground">
-          Or continue with
-        </span>
-      </div>
-      <div>
-        <button
-          onClick={() => window.open(`${config.baseUrl}/auth/google`)}
-          type="button"
-          className="max-w-lg px-4 text-sm py-1.5 font-bold items-center rounded-xl bg-white text-black"
-        >
-          Login with Google
-        </button>
-      </div>
+
       <div className="text-center text-sm">
         Already have an account?
-        <Link to="/register" className="underline underline-offset-4">
+        <Link
+          to="/register"
+          className="text-gray-300 underline underline-offset-4"
+        >
           Register
         </Link>
       </div>
