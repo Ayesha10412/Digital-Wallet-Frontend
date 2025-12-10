@@ -20,6 +20,10 @@ import AddMoney from "@/Pages/User/AddMoney";
 import CashOutForm from "@/Pages/Agent/CashOutForm";
 import ResetPassword from "@/Component/ResetPassword";
 import UpdateProfile from "@/Component/UpdateProfile";
+import About from "@/Component/HomePage/Component/About";
+import Features from "@/Component/HomePage/Component/Features";
+import Contact from "@/Component/HomePage/Component/Contact";
+import Pricing from "@/Component/HomePage/Component/Pricing";
 export const router = createBrowserRouter([
   {
     Component: App,
@@ -70,6 +74,24 @@ export const router = createBrowserRouter([
         path: "/resetPassword",
       },
       {
+        Component: About,
+        path: "/about",
+      },
+      {
+        Component: Features,
+        path: "/features",
+      },
+      {
+        Component: Contact,
+        path: "/contact",
+      },
+      {
+        Component: Pricing,
+        path: "/pricing",
+      },
+    ],
+  },
+      {
         Component: withAuth(DashboardLayout, Role.admin as TRole),
         path: "/admin",
         children: [
@@ -93,6 +115,6 @@ export const router = createBrowserRouter([
           ...generateRoute(userSidebarItems),
         ],
       },
-    ],
-  },
+    
+  
 ]);

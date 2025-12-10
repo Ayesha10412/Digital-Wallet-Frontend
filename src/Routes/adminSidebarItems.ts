@@ -1,12 +1,11 @@
 import AdminProfile from "@/Pages/Admin/AdminProfile";
-import allTransaction from "@/Pages/Admin/AllTransaction";
 import AllUsers from "@/Pages/Admin/AllUsers";
 import Analytics from "@/Pages/Admin/Analytics";
 import type { ISidebarItem } from "@/Types";
 
 export const adminSidebarItems: ISidebarItem[] = [
   {
-    title: "Dashboard",
+    title: "Admin Dashboard",
     items: [
       {
         title: "Profile",
@@ -21,18 +20,14 @@ export const adminSidebarItems: ISidebarItem[] = [
     ],
   },
   {
-    title: "Transaction Management",
+    title: "User Management",
     items: [
       {
         title: "All User",
         url: "/admin/all-user",
         component: AllUsers,
       },
-      {
-        title: "Get all Transaction",
-        url: "/admin/all-transaction",
-        component: allTransaction,
-      },
+     
     ],
   },
 ];

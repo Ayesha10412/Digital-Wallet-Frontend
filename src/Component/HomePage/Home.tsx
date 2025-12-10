@@ -1,5 +1,7 @@
-import React from "react";
+import Banner from "./HomepageComponent/Banner";
 
 export default function Home() {
-  return <div>Home</div>;
+  return <div className="  rounded-xl w-full  mx-auto">
+    <Banner />
+  </div>;
 }

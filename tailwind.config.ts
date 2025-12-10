@@ -11,6 +11,9 @@ const config: Config = {
         gold: {
           400: "#FFD700", // adds support for to-gold-400
         },
+        blue: {
+          400: "#2563EB", // professional fintech blue
+        },
       },
     },
   },
