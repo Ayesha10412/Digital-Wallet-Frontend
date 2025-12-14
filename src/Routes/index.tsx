@@ -24,6 +24,7 @@ import About from "@/Component/HomePage/Component/About";
 import Features from "@/Component/HomePage/Component/Features";
 import Contact from "@/Component/HomePage/Component/Contact";
 import Pricing from "@/Component/HomePage/Component/Pricing";
+import FAQ from "@/Component/HomePage/Component/FAQ";
 export const router = createBrowserRouter([
   {
     Component: App,
@@ -84,6 +85,10 @@ export const router = createBrowserRouter([
       {
         Component: Contact,
         path: "/contact",
+      },
+      {
+        Component: FAQ,
+        path: "/faq",
       },
       {
         Component: Pricing,

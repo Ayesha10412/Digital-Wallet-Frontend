@@ -4,10 +4,10 @@ import Logo from "@/assets/icons/Logo";
 import LoginForm from "@/Modules/Authentication/LoginForm";
 export default function Login() {
   return (
-    <div className="w-full">
-      <div className="relative min-h-screen w-full bg-gray-100 rounded-xl">
+    <div className="w-full mt-10  ">
+      <div className="relative min-h-screen w-full bg-gray-100 rounded-xl  ">
         <div
-          className="absolute inset-0 bg-cover bg-center brightness-90 dark:brightness-75 "
+          className="absolute inset-0 bg-cover  bg-center brightness-90 dark:brightness-75 "
           style={{ backgroundImage: `url(${RegisterImage})` }}
         ></div>
 
@@ -17,7 +17,7 @@ export default function Login() {
           <Link
             to="/"
             className="flex items-center gap-2 mb-8"
-            style={{ minWidth: "80px", minHeight: "40px" }}
+            style={{ minWidth: "75px", minHeight: "35px" }}
           >
             <div className="w-[40%] mx-auto mt-12">
               {" "}
@@ -25,7 +25,7 @@ export default function Login() {
             </div>
           </Link>
 
-          <div className="w-full max-w-xl p-6 sm:p-10 bg-white/0 rounded-lg shadow-md backdrop-blur-sm">
+          <div className="w-full mb-2 max-w-xl  bg-white/0 rounded-lg shadow-md backdrop-blur-sm">
             <LoginForm></LoginForm>
           </div>
         </div>
