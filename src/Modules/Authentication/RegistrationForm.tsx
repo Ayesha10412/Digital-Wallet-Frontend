@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -105,11 +104,11 @@ export default function RegistrationForm({
               <FormItem>
                 <FormLabel>Username</FormLabel>
                 <FormControl>
-                  <Input placeholder="Username" {...field} />
+                  <Input
+                    placeholder="This is your public display name."
+                    {...field}
+                  />
                 </FormControl>
-                <FormDescription className="text-gray-400">
-                  This is your public display name.
-                </FormDescription>
               </FormItem>
             )}
           />
@@ -121,11 +120,8 @@ export default function RegistrationForm({
               <FormItem>
                 <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input placeholder="Email" {...field} />
+                  <Input placeholder="Enter Your email" {...field} />
                 </FormControl>
-                <FormDescription className="text-gray-400">
-                  Enter Your email
-                </FormDescription>
               </FormItem>
             )}
           />
@@ -137,11 +133,8 @@ export default function RegistrationForm({
               <FormItem>
                 <FormLabel>Password</FormLabel>
                 <FormControl>
-                  <Input placeholder="Password" {...field} />
+                  <Input placeholder="Type your password here!" {...field} />
                 </FormControl>
-                <FormDescription className="text-gray-400">
-                  Type your password here!
-                </FormDescription>
               </FormItem>
             )}
           />
@@ -153,11 +146,8 @@ export default function RegistrationForm({
               <FormItem>
                 <FormLabel>Confirm Password</FormLabel>
                 <FormControl>
-                  <Input placeholder="Confirm Password" {...field} />
+                  <Input placeholder="Match your password!" {...field} />
                 </FormControl>
-                <FormDescription className="text-gray-400">
-                  Match your password!
-                </FormDescription>
               </FormItem>
             )}
           />
@@ -169,11 +159,8 @@ export default function RegistrationForm({
               <FormItem>
                 <FormLabel>Phone</FormLabel>
                 <FormControl>
-                  <Input placeholder="Phone" {...field} />
+                  <Input placeholder="Give your phone number." {...field} />
                 </FormControl>
-                <FormDescription className="text-gray-300">
-                  Give your phone number.
-                </FormDescription>
               </FormItem>
             )}
           />
@@ -185,38 +172,44 @@ export default function RegistrationForm({
               <FormItem>
                 <FormLabel>Address</FormLabel>
                 <FormControl>
-                  <Input placeholder="Address" {...field} />
+                  <Input placeholder="Give your address." {...field} />
                 </FormControl>
-                <FormDescription className="text-gray-400">
-                  Give your address.
-                </FormDescription>
               </FormItem>
             )}
           />
-          <Button type="submit" className="bg-white text-black ">
-            Register
-          </Button>
+          <div className="flex items-center justify-between">
+            {/* Register Link */}
+            <div className="text-center text-sm text-gray-300 ">
+              Don't have an account?{" "}
+              <Link
+                to="/register"
+                className="underline underline-offset-2 hover:text-blue-400"
+              >
+                Register
+              </Link>
+            </div>
+            {/* Forgot Password */}
+            <div className="text-right text-sm text-gray-300 ">
+              <Link to="/resetPassword" className="hover:underline">
+                Forgot password?
+              </Link>
+            </div>
+          </div>
+
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row gap-3">
+            <Button
+              type="submit"
+              className="flex-1 justify-center font-semibold bg-blue-600 hover:bg-blue-700 text-white"
+            >
+              Login
+            </Button>
+            <Button className="flex-1 justify-center font-semibold bg-white text-blue-600 hover:bg-gray-100 border border-gray-300">
+              Login with Google
+            </Button>
+          </div>
         </form>
       </Form>
-      <div className="relative text-center text-sm after:absolute after4:insert-0 after:top-1/2 after:z-0 after:flex after:items-center">
-        <span className="relative z-10 bg-background rounded-lg px-2 text-muted-foreground">
-          Or continue with
-        </span>
-      </div>
-      <div>
-        <button
-          type="button"
-          className="max-w-lg px-4 text-sm py-1.5 font-bold items-center rounded-xl bg-white text-black"
-        >
-          Login with Google
-        </button>
-      </div>
-      <div className="text-center text-sm">
-        Already have an account?{" "}
-        <Link to="/login" className="underline underline-offset-4">
-          Login
-        </Link>
-      </div>
     </div>
   );
 }
