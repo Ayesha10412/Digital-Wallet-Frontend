@@ -44,7 +44,7 @@ export default function LoginForm({
   return (
     <div
       className={cn(
-        "flex flex-col gap-8 text-white text-xl max-w-max mx-auto ",
+        "flex flex-col gap-5 text-white text-xl max-w-max mx-auto ",
         className
       )}
       {...props}
@@ -52,7 +52,10 @@ export default function LoginForm({
       <h1 className="text-3xl font-bold text-center">Login to Your Account</h1>
 
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-7 py-4">
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="space-y-4 py-4"
+        >
           {/* Email */}
           <FormField
             control={form.control}
@@ -81,28 +84,20 @@ export default function LoginForm({
                     {...field}
                   />
                 </FormControl>
+                <div className="text-sm text-left  text-gray-300  ">
+                  Don't have an account?{" "}
+                  <Link
+                    to="/register"
+                    className="underline underline-offset-2 hover:text-blue-400"
+                  >
+                    Register
+                  </Link>
+                </div>
               </FormItem>
             )}
           />
 
-          <div className="flex items-center justify-between">
-            {/* Register Link */}
-            <div className="text-center text-sm text-gray-300 ">
-              Don't have an account?{" "}
-              <Link
-                to="/register"
-                className="underline underline-offset-2 hover:text-blue-400"
-              >
-                Register
-              </Link>
-            </div>
-            {/* Forgot Password */}
-            <div className="text-right text-sm text-gray-300 ">
-              <Link to="/resetPassword" className="hover:underline">
-                Forgot password?
-              </Link>
-            </div>
-          </div>
+          {/* Register Link */}
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-3">

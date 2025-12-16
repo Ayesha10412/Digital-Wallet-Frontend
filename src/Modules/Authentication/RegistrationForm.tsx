@@ -89,7 +89,7 @@ export default function RegistrationForm({
   };
   return (
     <div
-      className={cn("flex flex-col gap-6 text-white text-xl", className)}
+      className={cn("flex flex-col gap-6 text-white text-xl ", className)}
       {...props}
     >
       <h1 className="text-3xl text-white font-bold text-center">
@@ -174,27 +174,18 @@ export default function RegistrationForm({
                 <FormControl>
                   <Input placeholder="Give your address." {...field} />
                 </FormControl>
+                <div className="text-sm text-left  text-gray-300  ">
+                  Don't have an account?{" "}
+                  <Link
+                    to="/register"
+                    className="underline underline-offset-2 hover:text-blue-400"
+                  >
+                    Register
+                  </Link>
+                </div>
               </FormItem>
             )}
           />
-          <div className="flex items-center justify-between">
-            {/* Register Link */}
-            <div className="text-center text-sm text-gray-300 ">
-              Don't have an account?{" "}
-              <Link
-                to="/register"
-                className="underline underline-offset-2 hover:text-blue-400"
-              >
-                Register
-              </Link>
-            </div>
-            {/* Forgot Password */}
-            <div className="text-right text-sm text-gray-300 ">
-              <Link to="/resetPassword" className="hover:underline">
-                Forgot password?
-              </Link>
-            </div>
-          </div>
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-3">

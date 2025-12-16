@@ -10,10 +10,12 @@ import {
 } from "@/components/ui/card";
 import { useUserInfoQuery } from "@/Redux/Features/User/user.api";
 import { Mail, MapPin, Phone, ShieldCheck, User } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function AgentProfile() {
   const { data } = useUserInfoQuery(undefined);
   const user = data?.data;
+  const navigate=useNavigate()
   return (
     <div>
       <h1 className="text-center text-green-500 font-bold text-3xl mb-8">
@@ -78,9 +80,18 @@ export default function AgentProfile() {
             </div>
           </CardContent>
 
-          <CardFooter className="flex justify-center py-4 border-t border-purple-100">
-            <button className="px-6 py-2 rounded-full text-white bg-purple-600 hover:bg-purple-700 transition font-medium shadow-md">
+           <CardFooter className="flex gap-8 text-sm  justify-center py-4 border-t border-purple-100">
+            <button
+              onClick={() => navigate("/profile/edit")}
+              className="px-6 py-2 rounded-xl text-white bg-teal-600 hover:bg-teal-700 transition font-medium shadow-md"
+            >
               Edit Profile
+            </button>
+            <button
+              onClick={() => navigate("/resetPassword")}
+              className="px-6 py-2 rounded-xl text-white bg-cyan-600 hover:bg-cyan-800 transition font-medium shadow-md"
+            >
+              Reset Password
             </button>
           </CardFooter>
         </Card>

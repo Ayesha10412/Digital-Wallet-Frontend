@@ -96,30 +96,28 @@ export const router = createBrowserRouter([
       },
     ],
   },
-      {
-        Component: withAuth(DashboardLayout, Role.admin as TRole),
-        path: "/admin",
-        children: [
-          { index: true, element: <Navigate to="/admin/all-transaction" /> },
-          ...generateRoute(adminSidebarItems),
-        ],
-      },
-      {
-        Component: withAuth(DashboardLayout, Role.agent as TRole),
-        path: "/agent",
-        children: [
-          { index: true, element: <Navigate to="/agent/home" /> },
-          ...generateRoute(agentSidebarItems),
-        ],
-      },
-      {
-        Component: withAuth(DashboardLayout, Role.user as TRole),
-        path: "/user",
-        children: [
-          { index: true, element: <Navigate to="/user/wallet" /> },
-          ...generateRoute(userSidebarItems),
-        ],
-      },
-    
-  
+  {
+    Component: withAuth(DashboardLayout, Role.admin as TRole),
+    path: "/admin",
+    children: [
+      { index: true, element: <Navigate to="/admin/profile" /> },
+      ...generateRoute(adminSidebarItems),
+    ],
+  },
+  {
+    Component: withAuth(DashboardLayout, Role.agent as TRole),
+    path: "/agent",
+    children: [
+      { index: true, element: <Navigate to="/agent/home" /> },
+      ...generateRoute(agentSidebarItems),
+    ],
+  },
+  {
+    Component: withAuth(DashboardLayout, Role.user as TRole),
+    path: "/user",
+    children: [
+      { index: true, element: <Navigate to="/user/wallet" /> },
+      ...generateRoute(userSidebarItems),
+    ],
+  },
 ]);

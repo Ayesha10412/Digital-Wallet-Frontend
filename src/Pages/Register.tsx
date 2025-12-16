@@ -4,7 +4,7 @@ import RegisterImage from "../assets/RegisterImage.jpg";
 import Logo from "@/assets/icons/Logo";
 export default function Register() {
   return (
-    <div className="w-full">
+    <div className="w-full ">
       <div className="relative min-h-screen w-full bg-gray-100 rounded-xl">
         <div
           className="absolute inset-0 bg-cover bg-center brightness-90 dark:brightness-75 "
@@ -25,7 +25,7 @@ export default function Register() {
             </div>
           </Link>
 
-          <div className="w-full max-w-xl p-6 sm:p-10 bg-white/0 rounded-lg shadow-md backdrop-blur-sm">
+          <div className="w-full max-w-xl mb-5  p-4 sm:p-10 bg-white/0 rounded-lg shadow-md backdrop-blur-sm">
             <RegistrationForm />
           </div>
         </div>

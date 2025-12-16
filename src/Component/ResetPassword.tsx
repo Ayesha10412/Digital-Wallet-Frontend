@@ -1,10 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import useRole from "@/Hooks/useRole";
 import { useResetPasswordMutation } from "@/Redux/Features/auth/auth.api";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 export default function ResetPassword() {
+  const { profilePath } = useRole();
   const [resetPassword] = useResetPasswordMutation();
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
@@ -12,7 +15,7 @@ export default function ResetPassword() {
   const [showOld, setShowOld] = useState(false);
   const [showNew, setShowNew] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
-
+  const navigate = useNavigate();
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!oldPassword || !newPassword || !confirmPassword) {
@@ -30,6 +33,7 @@ export default function ResetPassword() {
       setOldPassword("");
       setNewPassword("");
       setConfirmPassword("");
+      navigate(profilePath);
     } catch (error: any) {
       toast.error(error?.data?.message || "Something went wrong!");
     }

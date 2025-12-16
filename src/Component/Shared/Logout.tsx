@@ -15,7 +15,7 @@ export default function Logout({ className }: logoutProps) {
     <>
       {" "}
       <Button
-        className={`w-full ${className}`}
+        className={`max-w-3xl ${className}`}
         variant="outline"
         onClick={handleLogout}
       >

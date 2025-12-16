@@ -81,12 +81,18 @@ export default function UserProfile() {
             </div>
           </CardContent>
 
-          <CardFooter className="flex justify-center py-4 border-t border-purple-100">
+          <CardFooter className="flex gap-8 text-sm  justify-center py-4 border-t border-purple-100">
             <button
               onClick={() => navigate("/profile/edit")}
-              className="px-6 py-2 rounded-full text-white bg-purple-600 hover:bg-purple-700 transition font-medium shadow-md"
+              className="px-6 py-2 rounded-xl text-white bg-teal-600 hover:bg-teal-700 transition font-medium shadow-md"
             >
               Edit Profile
+            </button>
+            <button
+              onClick={() => navigate("/resetPassword")}
+              className="px-6 py-2 rounded-xl text-white bg-cyan-600 hover:bg-cyan-800 transition font-medium shadow-md"
+            >
+              Reset Password
             </button>
           </CardFooter>
         </Card>
