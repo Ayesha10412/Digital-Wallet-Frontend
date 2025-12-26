@@ -1,6 +1,7 @@
 import AgentProfile from "@/Pages/Agent/AgentProfile";
 //import CashOutForm from "@/Pages/Agent/CashOutForm";
 import Overview from "@/Pages/Agent/Overview";
+import TransactionHistory from "@/Pages/TransactionHistory";
 import type { ISidebarItem } from "@/Types";
 
 export const agentSidebarItems: ISidebarItem[] = [
@@ -14,11 +15,11 @@ export const agentSidebarItems: ISidebarItem[] = [
         url: "/agent/profile",
         component: AgentProfile,
       },
-      // {
-      //   title: "Cash-Out",
-      //   url: "/agent/cash-out",
-      //   component: CashOutForm,
-      // },
+      {
+        title: "Transaction History",
+        url: "/agent/history",
+        component: TransactionHistory,
+      },
     ],
   },
 ];

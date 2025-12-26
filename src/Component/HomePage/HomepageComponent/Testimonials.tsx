@@ -26,16 +26,16 @@ export default function Testimonials() {
   ];
 
   return (
-    <div className="mt-12 px-6">
+    <div className="mt-12 ">
       <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">
         What Our Users Say
       </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
         {testimonials.map((t) => (
           <Card
             key={t.name}
-            className="p-6 bg-white dark:bg-gray-800 shadow-lg rounded-2xl border border-blue-100"
+            className="p-4 bg-white dark:bg-gray-800 shadow-lg rounded-2xl border border-blue-100"
           >
             <h3 className="font-semibold text-blue-900 dark:text-white">
               {t.name}

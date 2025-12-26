@@ -26,7 +26,7 @@ export default function FeatureHighlights() {
   ];
 
   return (
-    <div className="px-6 mt-12">
+    <div className="mt-12">
       <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-10">
         Why Choose Our Platform
       </h2>

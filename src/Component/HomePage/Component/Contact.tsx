@@ -27,139 +27,254 @@ export default function Contact() {
   };
 
   return (
-    <section className="bg-background text-white p-5 mt-12">
-      <div className="max-w-4xl mx-auto ">
-        {/* Header */}
-        <div className="text-center space-y-2">
-          <h1 className="text-4xl font-bold text-blue-600">Contact Us</h1>
-          <p className="text-gray-300 text-lg">
-            Have a question, feedback, or need help? Fill out the form below and
-            we’ll get back to you shortly.
-          </p>
-        </div>
+    // <section className="bg-background text-white p-5 mt-12">
+    //   <div className="max-w-4xl mx-auto ">
+    //     {/* Header */}
+    //     <div className="text-center space-y-2">
+    //       <h1 className="text-4xl font-bold text-blue-600">Contact Us</h1>
+    //       <p className="text-gray-300 text-lg mb-5">
+    //         Have a question, feedback, or need help? Fill out the form below and
+    //         we’ll get back to you shortly.
+    //       </p>
+    //     </div>
 
-        {/* Contact Form */}
-        <Form {...form}>
-          <form
-            onSubmit={form.handleSubmit(onSubmit)}
-            className="space-y-6 bg-card p-8 rounded-xl shadow-md"
+    //     {/* Contact Form */}
+    //     <Form {...form}>
+    //       <form
+    //         onSubmit={form.handleSubmit(onSubmit)}
+    //         className="space-y-6 bg-card p-8 rounded-xl shadow-md "
+    //       >
+    //    <div className="max-w-md mx-auto gap-6">
+    //          {/* Name */}
+    //         <FormField
+    //           control={form.control}
+    //           name="name"
+    //           render={({ field }) => (
+    //             <FormItem>
+    //               <FormLabel>Name</FormLabel>
+    //               <FormControl>
+    //                 <Input placeholder="Your full name" {...field} />
+    //               </FormControl>
+    //             </FormItem>
+    //           )}
+    //         />
+
+    //         {/* Email */}
+    //         <FormField
+    //           control={form.control}
+    //           name="email"
+    //           render={({ field }) => (
+    //             <FormItem>
+    //               <FormLabel>Email</FormLabel>
+    //               <FormControl>
+    //                 <Input
+    //                   placeholder="Your email address"
+    //                   type="email"
+    //                   {...field}
+    //                 />
+    //               </FormControl>
+    //             </FormItem>
+    //           )}
+    //         />
+
+    //         {/* Message */}
+    //         <FormField
+    //           control={form.control}
+    //           name="message"
+    //           render={({ field }) => (
+    //             <FormItem>
+    //               <FormLabel>Message</FormLabel>
+    //               <FormControl className="border ">
+    //                 <textarea
+    //                   placeholder="Your message..."
+    //                   rows={5}
+    //                   {...field}
+    //                 />
+    //               </FormControl>
+    //             </FormItem>
+    //           )}
+    //         />
+
+    //         {/* Submit Button */}
+    //         <Button
+    //           type="submit"
+    //           className="bg-blue-600 hover:bg-blue-700 w-full"
+    //         >
+    //           Send Message
+    //         </Button>
+    //    </div>
+    //       </form>
+    //     </Form>
+
+    //     {/* Company Info */}
+    //     <div className="text-center text-gray-400 space-y-2 mt-8">
+    //       <p>Email: support@digitalwallet.com</p>
+    //       <p>Phone: +1 (555) 123-4567</p>
+    //       <p>Address: 123 Fintech Avenue, Dhaka, Mirpur</p>
+    //     </div>
+   
+    //     {/* Social Links */}
+    //     <div className="flex justify-center items-center gap-6 mt-6">
+    //       <a
+    //         href="https://facebook.com"
+    //         target="_blank"
+    //         rel="noopener noreferrer"
+    //         className="text-blue-600   transition"
+    //       >
+    //         <FaFacebook size={24} />
+    //       </a>
+    //       <a
+    //         href="https://twitter.com"
+    //         target="_blank"
+    //         rel="noopener noreferrer"
+    //         className="text-blue-400 transition"
+    //       >
+    //         <FaTwitter size={24} />
+    //       </a>
+
+    //       <a
+    //         href="https://github.com"
+    //         target="_blank"
+    //         rel="noopener noreferrer"
+    //         className="text-gray-500 transition"
+    //       >
+    //         <FaGithub size={24} />
+    //       </a>
+
+    //       <a
+    //         href="https://instagram.com"
+    //         target="_blank"
+    //         rel="noopener noreferrer"
+    //         className="text-pink-500 transition"
+    //       >
+    //         <FaInstagram size={24} />
+    //       </a>
+
+    //       <a
+    //         href="https://linkedin.com"
+    //         target="_blank"
+    //         rel="noopener noreferrer"
+    //         className="text-blue-700 transition"
+    //       >
+    //         <FaLinkedin size={24} />
+    //       </a>
+    //     </div>
+    //   </div>
+    // </section>
+    <section className="bg-background text-white py-16 px-4">
+  <div className="max-w-5xl mx-auto">
+    {/* Header */}
+    <div className="text-center mb-10">
+      <h1 className="text-4xl font-bold text-blue-600 mb-3">
+        Contact Us
+      </h1>
+      <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+        Have a question, feedback, or need help? Fill out the form below and
+        we’ll get back to you shortly.
+      </p>
+    </div>
+
+    {/* Form Card */}
+    <div className="bg-card rounded-2xl shadow-lg p-8 max-w-xl mx-auto">
+      <Form {...form}>
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="space-y-6"
+        >
+          {/* Name */}
+          <FormField
+            control={form.control}
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-gray-300">Name</FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder="Your full name"
+                    className="bg-background border-gray-700 focus:border-blue-600"
+                    {...field}
+                  />
+                </FormControl>
+              </FormItem>
+            )}
+          />
+
+          {/* Email */}
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-gray-300">Email</FormLabel>
+                <FormControl>
+                  <Input
+                    type="email"
+                    placeholder="Your email address"
+                    className="bg-background border-gray-700 focus:border-blue-600"
+                    {...field}
+                  />
+                </FormControl>
+              </FormItem>
+            )}
+          />
+
+          {/* Message */}
+          <FormField
+            control={form.control}
+            name="message"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-gray-300">Message</FormLabel>
+                <FormControl>
+                  <textarea
+                    rows={5}
+                    placeholder="Write your message..."
+                    className="w-full rounded-md bg-background border border-gray-700 px-3 py-2 text-sm text-white focus:outline-none focus:border-blue-600 resize-none"
+                    {...field}
+                  />
+                </FormControl>
+              </FormItem>
+            )}
+          />
+
+          {/* Submit */}
+          <Button
+            type="submit"
+            className="w-full bg-blue-600 hover:bg-blue-700 transition"
           >
-            {/* Name */}
-            <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Name</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Your full name" {...field} />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
+            Send Message
+          </Button>
+        </form>
+      </Form>
+    </div>
 
-            {/* Email */}
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Email</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="Your email address"
-                      type="email"
-                      {...field}
-                    />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
+    {/* Company Info */}
+    <div className="text-center text-gray-400 mt-10 space-y-1">
+      <p>Email: support@digitalwallet.com</p>
+      <p>Phone: +1 (555) 123-4567</p>
+      <p>Address: 123 Fintech Avenue, Dhaka, Mirpur</p>
+    </div>
 
-            {/* Message */}
-            <FormField
-              control={form.control}
-              name="message"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Message</FormLabel>
-                  <FormControl className="border ">
-                    <textarea
-                      placeholder="Your message..."
-                      rows={5}
-                      {...field}
-                    />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
+    {/* Social Links */}
+    <div className="flex justify-center gap-6 mt-6">
+      <a href="https://facebook.com" target="_blank" className="hover:text-blue-600 transition">
+        <FaFacebook size={22} />
+      </a>
+      <a href="https://twitter.com" target="_blank" className="hover:text-blue-400 transition">
+        <FaTwitter size={22} />
+      </a>
+      <a href="https://github.com" target="_blank" className="hover:text-gray-300 transition">
+        <FaGithub size={22} />
+      </a>
+      <a href="https://instagram.com" target="_blank" className="hover:text-pink-500 transition">
+        <FaInstagram size={22} />
+      </a>
+      <a href="https://linkedin.com" target="_blank" className="hover:text-blue-700 transition">
+        <FaLinkedin size={22} />
+      </a>
+    </div>
+  </div>
+</section>
 
-            {/* Submit Button */}
-            <Button
-              type="submit"
-              className="bg-blue-600 hover:bg-blue-700 w-full"
-            >
-              Send Message
-            </Button>
-          </form>
-        </Form>
-
-        {/* Company Info */}
-        <div className="text-center text-gray-400 space-y-2 mt-8">
-          <p>Email: support@digitalwallet.com</p>
-          <p>Phone: +1 (555) 123-4567</p>
-          <p>Address: 123 Fintech Avenue, Dhaka, Mirpur</p>
-        </div>
-
-    
-        {/* Social Links */}
-        <div className="flex justify-center items-center gap-6 mt-6">
-          <a
-            href="https://facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-600   transition"
-          >
-            <FaFacebook size={24} />
-          </a>
-
-          <a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-400 transition"
-          >
-            <FaTwitter size={24} />
-          </a>
-
-          <a
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-500 transition"
-          >
-            <FaGithub size={24} />
-          </a>
-
-          <a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-pink-500 transition"
-          >
-            <FaInstagram size={24} />
-          </a>
-
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-700 transition"
-          >
-            <FaLinkedin size={24} />
-          </a>
-        </div>
-      </div>
-    </section>
   );
 }

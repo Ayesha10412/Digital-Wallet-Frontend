@@ -53,7 +53,12 @@ export default function Overview() {
               {isAgent ? "Agent Wallet Balance" : "Wallet Balance"}
             </p>
             <h2 className="text-5xl font-bold mt-2">
-              {wallet ? `${wallet.balance} ${wallet.currency}` : "Loading..."}
+              {wallet
+                ? `${Number(wallet.balance).toLocaleString(undefined, {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })} ${wallet.currency}`
+                : "Loading..."}
             </h2>
             <p className="mt-3 opacity-90">Status: {wallet?.status}</p>
           </CardContent>
@@ -84,12 +89,12 @@ export default function Overview() {
               Cash Out for User
             </Link>
 
-            <Link
+            {/* <Link
               to="/agent/transactions"
               className="bg-indigo-500 hover:bg-indigo-600 text-white py-2 text-sm font-bold rounded-xl shadow-md transition transform hover:scale-105"
             >
               All Transactions
-            </Link>
+            </Link> */}
           </>
         )}
 

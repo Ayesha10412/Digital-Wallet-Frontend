@@ -7,7 +7,7 @@ import img5 from "../../../assets/homepageImgs/pexels-shvetsa-4226273.jpg";
 import { useNavigate } from "react-router-dom";
 
 export default function Banner() {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const images = [img1, img2, img3, img4, img5];
 
   return (
@@ -70,12 +70,13 @@ export default function Banner() {
             className="
               px-6 py-3
               rounded-lg
-              bg-primary
+       bg-black
               text-white
               font-semibold
               shadow-lg
               hover:bg-primary/90
               transition
+              hover:text-black
             "
           >
             Get Started Free
@@ -90,6 +91,7 @@ export default function Banner() {
               rounded-lg
               border border-white/70
               text-white
+              hover:text-black
               font-semibold
               backdrop-blur-sm
               hover:bg-white/20

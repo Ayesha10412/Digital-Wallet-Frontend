@@ -1,6 +1,7 @@
 import Wallet from "@/Pages/User/Wallet";
 import UserProfile from "@/Pages/User/UserProfile";
 import type { ISidebarItem } from "@/Types";
+import TransactionHistory from "@/Pages/TransactionHistory";
 
 export const userSidebarItems: ISidebarItem[] = [
   {
@@ -15,6 +16,11 @@ export const userSidebarItems: ISidebarItem[] = [
         title: "Profile",
         url: "/user/profile",
         component: UserProfile,
+      },
+      {
+        title: "Transaction History",
+        url: "/user/history",
+        component: TransactionHistory,
       },
     ],
   },

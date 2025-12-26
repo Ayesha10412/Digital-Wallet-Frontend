@@ -5,7 +5,7 @@ import Image from "../../../assets/homepageImgs/beautiful-cryptocurrwncy-concept
 export default function CallToAction() {
   const navigate = useNavigate();
   return (
-    <div className="relative px-6 py-20 rounded-2xl text-white border shadow-lg mx-6 mt-12 overflow-hidden">
+    <div className="relative  py-20 rounded-2xl text-white border shadow-lg  mt-12 overflow-hidden">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center brightness-90 dark:brightness-75"
@@ -23,7 +23,7 @@ export default function CallToAction() {
         </p>
         <button
           onClick={() => navigate("/register")}
-          className="px-8 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition"
+          className="px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition"
         >
           Join Now
         </button>

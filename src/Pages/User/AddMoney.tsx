@@ -25,6 +25,10 @@ export default function AddMoney() {
     if (!amount) {
       return toast.error("Please enter your amount!");
     }
+    if (Number(amount) <= 0) {
+      return toast.error("Amount must be greater than 0");
+    }
+
     try {
       const data = {
         amount: Number(amount),
@@ -34,8 +38,13 @@ export default function AddMoney() {
       toast.success("Money added successfully");
       navigate("/user/wallet");
       setAmount("");
-    } catch (err: any) {
-      toast.error(err.data?.message || "Cash in failed!");
+    } catch (err: unknown) {
+      if (typeof err === "object" && err !== null && "data" in err) {
+        const error = err as { data?: { message?: string } };
+        toast.error(error.data?.message || "Cash in failed!");
+      } else {
+        toast.error("Cash in failed!");
+      }
     }
   };
   if (userLoading) {

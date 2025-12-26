@@ -22,8 +22,8 @@ export default function UserProfile() {
       <h1 className="text-center text-green-500 font-bold text-3xl mb-8">
         User Profile
       </h1>
-      <div className="flex justify-center items-center p-6 bg-gradient-to-br from-purple-100 via-pink-50 to-blue-50 min-h-screen">
-        <Card className="w-full max-w-md shadow-xl rounded-2xl border border-purple-200 bg-white/90 backdrop-blur-md transition-transform hover:scale-[1.02] duration-300">
+      <div className="flex justify-center  items-center p-4 bg-gradient-to-br from-purple-100 via-pink-50 to-blue-50 min-h-screen">
+        <Card className="w-full max-w-lg shadow-xl rounded-2xl border border-purple-200 bg-white/90 backdrop-blur-md transition-transform hover:scale-[1.02] duration-300">
           <CardHeader className="flex flex-col items-center gap-3">
             {/*  User Image / Placeholder */}
             <Avatar className="w-28 h-28 border-4 border-purple-300 shadow-md">

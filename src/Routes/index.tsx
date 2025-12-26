@@ -50,26 +50,7 @@ export const router = createBrowserRouter([
         Component: UpdateProfile,
         path: "/profile/edit",
       },
-      {
-        Component: WithdrawMoney,
-        path: "/user/withdrawMoney",
-      },
-      {
-        Component: SendMoney,
-        path: "/user/sendMoney",
-      },
-      {
-        Component: CashInForm,
-        path: "/agent/cash-in",
-      },
-      {
-        Component: CashOutForm,
-        path: "/agent/cash-out",
-      },
-      {
-        Component: AddMoney,
-        path: "/agent/addMoney",
-      },
+
       {
         Component: ResetPassword,
         path: "/resetPassword",
@@ -110,6 +91,18 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: <Navigate to="/agent/home" /> },
       ...generateRoute(agentSidebarItems),
+      {
+        Component: CashInForm,
+        path: "/agent/cash-in",
+      },
+      {
+        Component: CashOutForm,
+        path: "/agent/cash-out",
+      },
+      {
+        Component: AddMoney,
+        path: "/agent/addMoney",
+      },
     ],
   },
   {
@@ -118,6 +111,18 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: <Navigate to="/user/wallet" /> },
       ...generateRoute(userSidebarItems),
+      {
+        Component: WithdrawMoney,
+        path: "/user/withdrawMoney",
+      },
+      {
+        Component: SendMoney,
+        path: "/user/sendMoney",
+      },
+      {
+        Component: AddMoney,
+        path: "/user/addMoney",
+      },
     ],
   },
 ]);

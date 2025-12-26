@@ -21,11 +21,11 @@ import {
   useAllUsersQuery,
   useUpdateUserInfoMutation,
 } from "@/Redux/Features/User/user.api";
-import { ArchiveX, Edit } from "lucide-react";
+import { Edit } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 
-export default function AllUsers() {
+export default function AllAgents() {
   const { data } = useAllUsersQuery(undefined);
   const [updateUserInfo] = useUpdateUserInfoMutation();
   const [formData, setFormData] = useState<any>({
@@ -36,8 +36,8 @@ export default function AllUsers() {
   });
   const [selectedUser, setSelectedUser] = useState<any>({});
   const [open, setOpen] = useState(false);
-  const users = data?.data.filter((item: any) => item.role === "USER");
-  //console.log(users);
+  const agents = data?.data.filter((item: any) => item.role === "AGENT");
+
   const handleOpenModal = (user: any) => {
     setSelectedUser(user);
     setFormData({
@@ -48,26 +48,61 @@ export default function AllUsers() {
     });
     setOpen(true);
   };
+  const [processingId, setProcessingId] = useState<string | null>(null);
+
   const handleEdit = async () => {
     try {
       await updateUserInfo({
         id: selectedUser._id,
         payload: formData,
       }).unwrap();
-      toast.success("User updated");
+      toast.success("Agent updated");
       setOpen(false);
     } catch (err: any) {
       console.log(err);
       toast.error("Update Failed!");
     }
   };
+
+  const handleApprove = async (user: any) => {
+    try {
+      setProcessingId(user._id);
+      await updateUserInfo({
+        id: user._id,
+        payload: { status: "ACTIVE", isApproved: true },
+      }).unwrap();
+      toast.success("Agent approved");
+    } catch (err: any) {
+      console.log(err);
+      toast.error("Approve failed");
+    } finally {
+      setProcessingId(null);
+    }
+  };
+
+  const handleSuspend = async (user: any) => {
+    try {
+      setProcessingId(user._id);
+      await updateUserInfo({
+        id: user._id,
+        payload: { status: "SUSPENDED", isApproved: false },
+      }).unwrap();
+      toast.success("Agent suspended");
+    } catch (err: any) {
+      console.log(err);
+      toast.error("Suspend failed");
+    } finally {
+      setProcessingId(null);
+    }
+  };
+
   return (
     <div>
       <h1 className="text-3xl text-center font-bold text-cyan-600">
-        All Users
+        All Agents
       </h1>
       <Table>
-        <TableCaption>A list of all users</TableCaption>
+        <TableCaption>A list of all agents</TableCaption>
         <TableHeader>
           <TableRow>
             <TableHead className="w-[100px] text-center">Name</TableHead>
@@ -79,7 +114,7 @@ export default function AllUsers() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {users?.map((user: any) => (
+          {agents?.map((user: any) => (
             <TableRow key={user._id}>
               <TableCell className="font-medium text-center align-middle">
                 {user.name}
@@ -98,11 +133,26 @@ export default function AllUsers() {
               </TableCell>
               <TableCell className="text-center align-middle">
                 <div className="flex justify-center gap-2">
+                  <button
+                    onClick={() => handleApprove(user)}
+                    disabled={processingId === user._id}
+                    className="px-3 py-1 rounded-md bg-green-600 text-white text-sm hover:bg-green-700 disabled:opacity-50"
+                  >
+                    Approve
+                  </button>
+
+                  <button
+                    onClick={() => handleSuspend(user)}
+                    disabled={processingId === user._id}
+                    className="px-3 py-1 rounded-md bg-red-600 text-white text-sm hover:bg-red-700 disabled:opacity-50"
+                  >
+                    Suspend
+                  </button>
+
                   <Edit
                     onClick={() => handleOpenModal(user)}
                     className="text-green-600 font-bold cursor-pointer"
                   />
-                  <ArchiveX className="text-red-600 font-bold cursor-pointer" />
                 </div>
               </TableCell>
             </TableRow>
@@ -110,11 +160,11 @@ export default function AllUsers() {
         </TableBody>
       </Table>
 
-      {/* Update User Modal */}
+      {/* Update Agent Modal */}
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Edit User Info</DialogTitle>
+            <DialogTitle>Edit Agent Info</DialogTitle>
           </DialogHeader>
 
           <div className="flex flex-col gap-3 mt-4">
@@ -148,11 +198,28 @@ export default function AllUsers() {
             />
           </div>
 
-          <DialogFooter>
+          <DialogFooter className="flex flex-wrap gap-2">
             <Button onClick={() => setOpen(false)} variant="secondary">
               Cancel
             </Button>
             <Button onClick={handleEdit}>Update</Button>
+
+            {/* Approve / Suspend quick actions */}
+            {selectedUser?.isApproved ? (
+              <Button
+                onClick={() => handleSuspend(selectedUser)}
+                variant="destructive"
+              >
+                Suspend
+              </Button>
+            ) : (
+              <Button
+                onClick={() => handleApprove(selectedUser)}
+                className="bg-green-600 hover:bg-green-700"
+              >
+                Approve
+              </Button>
+            )}
           </DialogFooter>
         </DialogContent>
       </Dialog>

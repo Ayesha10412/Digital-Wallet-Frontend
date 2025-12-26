@@ -26,8 +26,8 @@ export default function LoginForm({
     try {
       const res = await login(data).unwrap();
       if (res.success) {
-        toast.success("User Created Successfully!!");
-        navigate("/");
+        toast.success("User logged In Successfully!!");
+        navigate("/user/wallet");
       }
       console.log(res);
     } catch (err: any) {
