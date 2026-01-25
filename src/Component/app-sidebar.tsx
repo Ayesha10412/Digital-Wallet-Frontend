@@ -75,8 +75,8 @@ export default function AppSidebar({
             Home
           </Link>
 
-          <div className=" hover:bg-gray-100  text-sm">
-            <Logout className="w-full justify-start border-none bg-none " />
+          <div className=" hover:bg-gray-200  text-sm">
+            <Logout className="w-full justify-start hover:text-gray-700  border-none bg-none " />
           </div>
         </div>
       </SidebarContent>

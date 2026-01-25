@@ -27,20 +27,20 @@ const registerSchema = z
       .min(8, "Must be at least 8 characters")
       .regex(
         /^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/,
-        "Must include at least one uppercase letter, one number, and one special character"
+        "Must include at least one uppercase letter, one number, and one special character",
       ),
     confirmPassword: z
       .string()
       .min(8, "Must be at least 8 characters")
       .regex(
         /^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/,
-        "Must include at least one uppercase letter, one number, and one special character"
+        "Must include at least one uppercase letter, one number, and one special character",
       ),
     phone: z
       .string({ message: "Phone number must be string" })
       .regex(
         /^(?:\+8801[3-9]\d{8}|01[3-9]\d{8})$/,
-        "Invalid Bangladeshi phone number"
+        "Invalid Bangladeshi phone number",
       )
       .optional(),
 
@@ -85,6 +85,7 @@ export default function RegistrationForm({
       console.log(result);
     } catch (error) {
       console.log(error);
+      toast.error("User registration is failed!");
     }
   };
   return (
@@ -96,7 +97,7 @@ export default function RegistrationForm({
         Register Your Account
       </h1>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5 ">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 ">
           <FormField
             control={form.control}
             name="name"

@@ -6,8 +6,10 @@ import {
   FormField,
   FormItem,
   FormLabel,
+  FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { navigateByRole } from "@/Lib/navigateByRole";
 import { cn } from "@/lib/utils";
 import { useLoginMutation } from "@/Redux/Features/auth/auth.api";
 import type React from "react";
@@ -27,7 +29,9 @@ export default function LoginForm({
       const res = await login(data).unwrap();
       if (res.success) {
         toast.success("User logged In Successfully!!");
-        navigate("/user/wallet");
+        const role=res?.data?.user?.role 
+        console.log(role)
+        navigateByRole(role,navigate);
       }
       console.log(res);
     } catch (err: any) {
@@ -37,25 +41,24 @@ export default function LoginForm({
         toast.error("Invalid Credentials");
       }
       if (err.data.message === "User is not verified") {
-        toast.error("Your account is no0t verified");
+        toast.error("Your account is not verified");
       }
+      const errorMessage = err?.data?.message || "Login Failed!";
+      toast.error(errorMessage);
     }
   };
   return (
     <div
       className={cn(
         "flex flex-col gap-5 text-white text-xl max-w-max mx-auto ",
-        className
+        className,
       )}
       {...props}
     >
       <h1 className="text-3xl font-bold text-center">Login to Your Account</h1>
 
       <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-4 py-4"
-        >
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 py-6">
           {/* Email */}
           <FormField
             control={form.control}
@@ -84,6 +87,7 @@ export default function LoginForm({
                     {...field}
                   />
                 </FormControl>
+                <FormMessage />
                 <div className="text-sm text-left  text-gray-300  ">
                   Don't have an account?{" "}
                   <Link

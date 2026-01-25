@@ -27,140 +27,7 @@ export default function Contact() {
   };
 
   return (
-    // <section className="bg-background text-white p-5 mt-12">
-    //   <div className="max-w-4xl mx-auto ">
-    //     {/* Header */}
-    //     <div className="text-center space-y-2">
-    //       <h1 className="text-4xl font-bold text-blue-600">Contact Us</h1>
-    //       <p className="text-gray-300 text-lg mb-5">
-    //         Have a question, feedback, or need help? Fill out the form below and
-    //         we’ll get back to you shortly.
-    //       </p>
-    //     </div>
 
-    //     {/* Contact Form */}
-    //     <Form {...form}>
-    //       <form
-    //         onSubmit={form.handleSubmit(onSubmit)}
-    //         className="space-y-6 bg-card p-8 rounded-xl shadow-md "
-    //       >
-    //    <div className="max-w-md mx-auto gap-6">
-    //          {/* Name */}
-    //         <FormField
-    //           control={form.control}
-    //           name="name"
-    //           render={({ field }) => (
-    //             <FormItem>
-    //               <FormLabel>Name</FormLabel>
-    //               <FormControl>
-    //                 <Input placeholder="Your full name" {...field} />
-    //               </FormControl>
-    //             </FormItem>
-    //           )}
-    //         />
-
-    //         {/* Email */}
-    //         <FormField
-    //           control={form.control}
-    //           name="email"
-    //           render={({ field }) => (
-    //             <FormItem>
-    //               <FormLabel>Email</FormLabel>
-    //               <FormControl>
-    //                 <Input
-    //                   placeholder="Your email address"
-    //                   type="email"
-    //                   {...field}
-    //                 />
-    //               </FormControl>
-    //             </FormItem>
-    //           )}
-    //         />
-
-    //         {/* Message */}
-    //         <FormField
-    //           control={form.control}
-    //           name="message"
-    //           render={({ field }) => (
-    //             <FormItem>
-    //               <FormLabel>Message</FormLabel>
-    //               <FormControl className="border ">
-    //                 <textarea
-    //                   placeholder="Your message..."
-    //                   rows={5}
-    //                   {...field}
-    //                 />
-    //               </FormControl>
-    //             </FormItem>
-    //           )}
-    //         />
-
-    //         {/* Submit Button */}
-    //         <Button
-    //           type="submit"
-    //           className="bg-blue-600 hover:bg-blue-700 w-full"
-    //         >
-    //           Send Message
-    //         </Button>
-    //    </div>
-    //       </form>
-    //     </Form>
-
-    //     {/* Company Info */}
-    //     <div className="text-center text-gray-400 space-y-2 mt-8">
-    //       <p>Email: support@digitalwallet.com</p>
-    //       <p>Phone: +1 (555) 123-4567</p>
-    //       <p>Address: 123 Fintech Avenue, Dhaka, Mirpur</p>
-    //     </div>
-   
-    //     {/* Social Links */}
-    //     <div className="flex justify-center items-center gap-6 mt-6">
-    //       <a
-    //         href="https://facebook.com"
-    //         target="_blank"
-    //         rel="noopener noreferrer"
-    //         className="text-blue-600   transition"
-    //       >
-    //         <FaFacebook size={24} />
-    //       </a>
-    //       <a
-    //         href="https://twitter.com"
-    //         target="_blank"
-    //         rel="noopener noreferrer"
-    //         className="text-blue-400 transition"
-    //       >
-    //         <FaTwitter size={24} />
-    //       </a>
-
-    //       <a
-    //         href="https://github.com"
-    //         target="_blank"
-    //         rel="noopener noreferrer"
-    //         className="text-gray-500 transition"
-    //       >
-    //         <FaGithub size={24} />
-    //       </a>
-
-    //       <a
-    //         href="https://instagram.com"
-    //         target="_blank"
-    //         rel="noopener noreferrer"
-    //         className="text-pink-500 transition"
-    //       >
-    //         <FaInstagram size={24} />
-    //       </a>
-
-    //       <a
-    //         href="https://linkedin.com"
-    //         target="_blank"
-    //         rel="noopener noreferrer"
-    //         className="text-blue-700 transition"
-    //       >
-    //         <FaLinkedin size={24} />
-    //       </a>
-    //     </div>
-    //   </div>
-    // </section>
     <section className="bg-background text-white py-16 px-4">
   <div className="max-w-5xl mx-auto">
     {/* Header */}
@@ -175,11 +42,11 @@ export default function Contact() {
     </div>
 
     {/* Form Card */}
-    <div className="bg-card rounded-2xl shadow-lg p-8 max-w-xl mx-auto">
+    <div className="bg-card rounded-2xl shadow-lg px-8 py-10 max-w-xl mx-auto ">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-6"
+          className="space-y-6  w-md mx-auto"
         >
           {/* Name */}
           <FormField

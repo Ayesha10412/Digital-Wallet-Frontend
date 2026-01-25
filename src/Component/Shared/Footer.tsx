@@ -27,33 +27,34 @@ interface Footer7Props {
 
 const defaultSections = [
   {
-    title: "Product",
+    title: "Wallet",
     links: [
-      { name: "Overview", href: "#" },
-      { name: "Pricing", href: "#" },
-      { name: "Marketplace", href: "#" },
-      { name: "Features", href: "#" },
+      { name: "My Wallet", href: "/user" },
+      { name: "Send Money", href: "/features" },
+      { name: "Transaction History", href: "/user/transactions" },
+      { name: "Security", href: "/features" },
     ],
   },
   {
     title: "Company",
     links: [
-      { name: "About", href: "#" },
-      { name: "Team", href: "#" },
-      { name: "Blog", href: "#" },
+      { name: "About Us", href: "/about" },
       { name: "Careers", href: "#" },
+      { name: "Blog", href: "#" },
+      { name: "Contact", href: "/contact" },
     ],
   },
   {
-    title: "Resources",
+    title: "Support",
     links: [
-      { name: "Help", href: "#" },
-      { name: "Sales", href: "#" },
-      { name: "Advertise", href: "#" },
-      { name: "Privacy", href: "#" },
+      { name: "Help Center", href: "/faq" },
+      { name: "Fees & Charges", href: "/pricing" },
+      { name: "Privacy Policy", href: "#" },
+      { name: "Terms & Conditions", href: "#" },
     ],
   },
 ];
+
 
 const defaultSocialLinks = [
   { icon: <FaInstagram className="size-5" />, href: "#", label: "Instagram" },
@@ -75,9 +76,9 @@ const Footer = ({
     title: "Digital Wallet",
   },
   sections = defaultSections,
-  description = "A collection of components for your startup business or side project.",
+  description = "A secure digital wallet to send, receive, and manage money instantly with confidence.",
   socialLinks = defaultSocialLinks,
-  copyright = "© 2024 Shadcnblocks.com. All rights reserved.",
+  copyright = "© 2026 Shadcnblocks.com. All rights reserved.",
   legalLinks = defaultLegalLinks,
 }: Footer7Props) => {
   return (

@@ -13,9 +13,7 @@ import {
 } from "@/components/ui/popover";
 import { Role } from "@/Constant/Role";
 import { ModeToggle } from "@/Layout/ModeToggle";
-//import { authApi, useLogoutMutation } from "@/Redux/Features/auth/auth.api";
 import { useUserInfoQuery } from "@/Redux/Features/User/user.api";
-//import { useAppDispatch } from "@/Redux/hook";
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import Logout from "./Logout";
@@ -34,14 +32,9 @@ const navigationLinks = [
 
 export default function Navbar() {
   const { data } = useUserInfoQuery(undefined);
-  // const [logout] = useLogoutMutation();
-  // const dispatch = useAppDispatch();
+
   const location = useLocation();
-  //console.log(data);
-  // const handleLogout = async () => {
-  //   await logout(undefined);
-  //   dispatch(authApi.util.resetApiState());
-  // };
+
   return (
     <header className="border-b">
       <div className="container mx-auto px-4 flex h-16 items-center justify-between gap-4">
