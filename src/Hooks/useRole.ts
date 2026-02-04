@@ -2,7 +2,7 @@ import { useUserInfoQuery } from "@/Redux/Features/User/user.api";
 
 export default function useRole() {
   const { data: userData, isLoading } = useUserInfoQuery(undefined);
-  console.log(userData?.data?.role);
+  //console.log(userData?.data?.role);
   const Role = userData?.data?.role;
   let profilePath = "/user/profile";
 

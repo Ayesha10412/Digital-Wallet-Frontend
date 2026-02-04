@@ -28,7 +28,7 @@ export default function ResetPassword() {
     }
     try {
       const res = await resetPassword({ oldPassword, newPassword }).unwrap();
-      console.log(res);
+      //console.log(res);
       toast.success(res.message || "Password changed successfully!");
       setOldPassword("");
       setNewPassword("");

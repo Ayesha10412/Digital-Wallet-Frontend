@@ -2,7 +2,7 @@ import { Role } from "@/Constant/Role";
 
 export const navigateByRole = (
   role: string,
-  navigate: (path: string) => void
+  navigate: (path: string) => void,
 ) => {
   const normalizedRole = role.toLowerCase(); // ✅ FIX
 

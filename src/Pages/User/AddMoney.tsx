@@ -33,7 +33,7 @@ export default function AddMoney() {
       const data = {
         amount: Number(amount),
       };
-      console.log(data);
+     // console.log(data);
       await addMoney(data).unwrap();
       toast.success("Money added successfully");
       navigate("/user/wallet");

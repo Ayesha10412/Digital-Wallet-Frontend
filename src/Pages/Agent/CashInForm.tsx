@@ -35,9 +35,9 @@ export default function CashInForm() {
 
   const [cashIn, { data, isLoading, error }] = useCashInMutation();
   const { data: userData } = useRecipientsQuery(undefined);
-  console.log(userData?.data);
+  //console.log(userData?.data);
   const onSubmit = async (formData: any) => {
-    console.log(formData);
+    //console.log(formData);
     await cashIn({
       userId: formData.userId,
       amount: Number(formData.amount),

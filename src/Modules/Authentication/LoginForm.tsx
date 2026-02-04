@@ -30,12 +30,12 @@ export default function LoginForm({
       if (res.success) {
         toast.success("User logged In Successfully!!");
         const role=res?.data?.user?.role 
-        console.log(role)
+        //console.log(role)
         navigateByRole(role,navigate);
       }
-      console.log(res);
+      //console.log(res);
     } catch (err: any) {
-      console.log(err);
+      //console.log(err);
 
       if (err.data.message === "Password does not match") {
         toast.error("Invalid Credentials");

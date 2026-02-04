@@ -21,8 +21,8 @@ export default function Contact() {
     },
   });
 
-  const onSubmit = (data: any) => {
-    console.log("Form submitted:", data);
+  const onSubmit = () => {
+    //console.log("Form submitted:", data);
     alert("Your message has been submitted!");
   };
 

@@ -8,16 +8,17 @@ export const adminSidebarItems: ISidebarItem[] = [
   {
     title: "Admin Dashboard",
     items: [
+        {
+        title: "Analytics",
+        url: "/admin/analytics",
+        component: Analytics,
+      },
       {
         title: "Profile",
         url: "/admin/profile",
         component: AdminProfile,
       },
-      {
-        title: "Analytics",
-        url: "/admin/analytics",
-        component: Analytics,
-      },
+    
     ],
   },
   {

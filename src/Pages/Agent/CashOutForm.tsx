@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -46,14 +45,14 @@ export default function CashOutForm() {
 
   const onSubmit = async (values: CashOutFormType) => {
     try {
-      const res = await cashOut(values).unwrap();
+      await cashOut(values).unwrap();
       toast.success("Cash-Out Successful!");
-      console.log("Response:", res);
+      //console.log("Response:", res);
       navigate("/agent/profile");
       form.reset();
     } catch (err: any) {
       alert(err?.data?.message || "Cash-out failed");
-      console.log(err);
+      //console.log(err);
     }
   };
 

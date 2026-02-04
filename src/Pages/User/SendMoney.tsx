@@ -27,8 +27,8 @@ export default function SendMoney() {
   const { data: userInfo, isLoading: userLoading } =
     useUserInfoQuery(undefined);
   const { data } = useRecipientsQuery(undefined);
-  console.log(data);
-  console.log("Users:", data?.data);
+  //console.log(data);
+  //console.log("Users:", data?.data);
   const recipientInfo = data?.data;
   const user = userInfo?.data;
   const handleSubmit = async (e: React.FormEvent) => {
@@ -47,7 +47,7 @@ export default function SendMoney() {
         toUserId: selectedUserId,
         amount: Number(amount),
       };
-      console.log(sendData);
+      //console.log(sendData);
       await sendMoney(sendData).unwrap();
       toast.success("Send Money Successfully!");
       navigate("/user/wallet");

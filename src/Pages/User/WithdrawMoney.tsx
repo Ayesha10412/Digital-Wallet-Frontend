@@ -28,7 +28,7 @@ export default function WithdrawMoney() {
       const withdrawnData = {
         amount: Number(amount),
       };
-      console.log(withdrawnData);
+      //console.log(withdrawnData);
       await withdrawMoney(withdrawnData).unwrap();
       toast.success("Money Withdrawn Successfully!");
       navigate("/user/wallet");
