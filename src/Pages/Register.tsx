@@ -1,7 +1,7 @@
 import RegistrationForm from "@/Modules/Authentication/RegistrationForm";
 import { Link } from "react-router";
-import RegisterImage from "../assets/RegisterImage.jpg";
 import Logo from "@/assets/icons/Logo";
+import RegisterImage from "../assets/images/Register-Image.jpg"
 export default function Register() {
   return (
     <div className="w-full ">

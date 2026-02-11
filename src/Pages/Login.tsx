@@ -1,7 +1,7 @@
 import { Link } from "react-router";
-import RegisterImage from "../assets/RegisterImage.jpg";
 import Logo from "@/assets/icons/Logo";
 import LoginForm from "@/Modules/Authentication/LoginForm";
+import RegisterImage from "@/assets/images/Register-Image.jpg";
 export default function Login() {
   return (
     <div className="w-full mt-10  ">

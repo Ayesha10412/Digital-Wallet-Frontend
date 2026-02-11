@@ -9,7 +9,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { navigateByRole } from "@/Lib/navigateByRole";
+import { navigateByRole } from "@/lib/navigateByRole";
 import { cn } from "@/lib/utils";
 import { useLoginMutation } from "@/Redux/Features/auth/auth.api";
 import type React from "react";
@@ -29,9 +29,9 @@ export default function LoginForm({
       const res = await login(data).unwrap();
       if (res.success) {
         toast.success("User logged In Successfully!!");
-        const role=res?.data?.user?.role 
+        const role = res?.data?.user?.role;
         //console.log(role)
-        navigateByRole(role,navigate);
+        navigateByRole(role, navigate);
       }
       //console.log(res);
     } catch (err: any) {
