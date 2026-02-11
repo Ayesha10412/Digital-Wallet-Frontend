@@ -79,7 +79,7 @@ npm run build
 
 ## 🌐 Live URL
 
-
+https://digital-wallet-frontend-ebon.vercel.app/
 
 ---
 
@@ -112,5 +112,3 @@ src/
 
 
 ```
-Credentials: Admin-----> admin@gmail.com,  Admin@123
-            Agent -----> mita@gmail.com , Mita@123
